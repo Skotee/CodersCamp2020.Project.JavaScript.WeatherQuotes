@@ -10,7 +10,7 @@
       <script>
         const obiekt = {location: {lat: 0, lng: 0}, formatted_address: ""}
         let x = document.getElementById("info");
-        const KEY = "-"
+        const KEY = ""
         // sprawdzam dlugosc i szerokosc geograficzna, a nastepnie wrzucam je google maps api
         function showPosition(position) {
           const LAT = position.coords.latitude;
@@ -32,7 +32,7 @@
           
         }
 
-        async function getLocation(){
+        function getLocation(){
           if (navigator.geolocation) {
             
             navigator.geolocation.getCurrentPosition(showPosition);
