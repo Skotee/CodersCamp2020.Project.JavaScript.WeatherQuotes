@@ -8,32 +8,40 @@
     
       <button onclick="getLocation()">click me</button>
       <script>
+        const obiekt = {location: {lat: 0, lng: 0}, formatted_address: ""}
         let x = document.getElementById("info");
-        const KEY = "jeszcze nw w jaki sposob bd chcial ukryc klucz do api wiec go nie podaje ;/"
+        const KEY = "AIzaSyDa0u3whaCnVq2gRbqCOx7SVGSOOwKQTgI"
         // sprawdzam dlugosc i szerokosc geograficzna, a nastepnie wrzucam je google maps api
         function showPosition(position) {
           const LAT = position.coords.latitude;
           const LNG = position.coords.longitude;
           let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${LAT},${LNG}&key=${KEY}`;
-          console.log(LAT, LNG)
+          
+          
           fetch(url)
           .then(response => response.json() )
           .then(data => {
             // console.log(data);
-            let location = data.results[4].formatted_address;
+            let location = data.results[3].formatted_address;
+            Object.assign(obiekt, {location: data.results[3].geometry.location, formatted_address: data.results[3].formatted_address});
             x.innerHTML = location;
-            console.log(location);
+            
+            
           })
           .catch(err => console.warn("cos sie buntuje"))
           
         }
 
-        function getLocation(){
+        async function getLocation(){
           if (navigator.geolocation) {
+            
             navigator.geolocation.getCurrentPosition(showPosition);
+            
+            
           } else { 
             console.log("Geolocation is not supported by this browser.");
           }
+          console.log(obiekt);
         }
         
       </script>
