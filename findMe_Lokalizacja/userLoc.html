@@ -6,44 +6,37 @@
   <body>
     <p id="info"></p>
     
-      <button onclick="getLocation()">click me</button>
-      <script>
-        const obiekt = {location: {lat: 0, lng: 0}, formatted_address: ""}
-        let x = document.getElementById("info");
-        const KEY = ""
-        // sprawdzam dlugosc i szerokosc geograficzna, a nastepnie wrzucam je google maps api
-        function showPosition(position) {
-          const LAT = position.coords.latitude;
-          const LNG = position.coords.longitude;
-          let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${LAT},${LNG}&key=${KEY}`;
-          
-          
-          fetch(url)
-          .then(response => response.json() )
-          .then(data => {
-            // console.log(data);
-            let location = data.results[3].formatted_address;
-            Object.assign(obiekt, {location: data.results[3].geometry.location, formatted_address: data.results[3].formatted_address});
-            x.innerHTML = location;
-            
-            
-          })
-          .catch(err => console.warn("cos sie buntuje"))
-          
-        }
+    <button id="FindMeBtn">click me</button>
 
-        function getLocation(){
-          if (navigator.geolocation) {
-            
-            navigator.geolocation.getCurrentPosition(showPosition);
-            
-            
-          } else { 
-            console.log("Geolocation is not supported by this browser.");
-          }
-          console.log(obiekt);
-        }
+
+    <script>
+      const localization = {location: {lat: 0, lng: 0}, formatted_address: ""}
+      const KEY = ""
+
+      let findMebtn = document.getElementById("FindMeBtn");
+      let foramttedAdressParagraph = document.getElementById("info");
+      findMebtn.addEventListener("click",getLocation);
         
-      </script>
+        
+      // sprawdzam dlugosc i szerokosc geograficzna, a nastepnie wrzucam je google maps api
+      function showPosition(position) {
+        const LAT = position.coords.latitude;
+        const LNG = position.coords.longitude;
+        let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${LAT},${LNG}&key=${KEY}`;
+        fetch(url)
+        .then(response => response.json() )
+        .then(data => {
+          // console.log(data);
+          Object.assign(localization, {location: data.results[0].geometry.location, formatted_address: data.results[0].formatted_address});
+          foramttedAdressParagraph.innerHTML = localization.formatted_address;  
+        })
+        .catch(err => console.warn("wystapil problem"))   
+      }
+      function getLocation(){
+        navigator.geolocation ? navigator.geolocation.getCurrentPosition(showPosition) : console.log("Brak wspracia wykrywania geolokalizacji w tej przeglądarce");
+        console.log(localization);
+      }
+      
+    </script>
   </body>
 </html>
