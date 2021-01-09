@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Document</title>
+    <style>
+        input {
+            margin-top: 20vh;
+            margin-left: 40vw;
+        }
+    </style>
+</head>
+<body>
+
+    <input list="search" type="text" placeholder="Wpisz nazwę miasta">
+    <datalist id=""> </datalist>
+
+    <script>
+        // API testowe - żeby działało trzeba zrobić npm install oraz npm run proxy
+        fetch('http://localhost:8010/proxy/pjp-api/rest/station/findAll')
+        .then (response => response.json())
+        .then(json => { 
+            let citiesNames = [];
+
+            json.forEach(function(obj) {
+                citiesNames.push(obj.stationName.toUpperCase());
+            });
+
+            let input = document.querySelector('input');   
+            let datalist = document.querySelector('datalist');
+                
+            inputAutocomplete(input, datalist, citiesNames);
+          
+        })
+        .catch(err => console.log('Request Failed', err));
+
+
+        function cleanInputOptions(node) {
+            while(node.hasChildNodes()) {
+                node.removeChild(node.lastChild);
+            }
+        }
+
+        function inputAutocomplete(input, datalist, citiesNames) {
+            input.addEventListener("keyup", (e) => {
+                cleanInputOptions(datalist);
+
+                if (e.target.value.length >= 3)  {
+                    citiesNames.forEach(function(name)  {    
+                        let newOption = document.createElement('option');
+                        if(name.startsWith(e.target.value.toUpperCase()) ) {
+                            datalist.appendChild(newOption).setAttribute('value', `${name}`);
+                        }
+                    })
+
+                datalist.setAttribute("id", "search");
+
+                } else {
+                    datalist.setAttribute("id", "");
+                }
+            })
+        }
+    </script>
+
+
+</body>
+</html>
