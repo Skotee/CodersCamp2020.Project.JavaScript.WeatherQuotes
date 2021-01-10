@@ -1,5 +1,3 @@
-/* na razie pisze tu - prosze o info gdzie ma się to znaleźc docelowo */
-
 body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
@@ -8,28 +6,30 @@ body {
 
 .container {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   /* tymczasowo */
   background-image: url('../static/assets/img/modes/BackgroundImg/bgImg.jpg');
   background-size: cover;
-  animation: move 10s;
+  align-items: center;
 }
 
 .container .sidebar {
   display: flex;
   flex-direction: column;
   width: 500px;
-  margin: 80px 100px;
+  min-height: 75vh;
+  margin: 0 100px;
   margin-left: 0;
   border: 2px solid black;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .container .sidebar input {
   height: 50px;
   width: 75%;
-  margin: 60px auto;
+  margin: 55px auto;
   text-align: center;
   border: 1px black solid;
   border-radius: 50px;
@@ -52,9 +52,12 @@ body {
 .container .sidebar .informations .data {
   display: flex;
   flex-direction: column;
-  margin-left: 70px;
-  margin-top: 100px;
+  margin: 6% 0 6% 70px;
   font-size: 22px;
+}
+
+.container .sidebar .informations .data p {
+  margin: 12px 0;
 }
 
 .container .quote {
@@ -63,7 +66,6 @@ body {
   justify-content: center;
   align-items: center;
   padding: 0 20px;
-  height: 100vh;
   width: 100%;
   margin: 0 100px;
   text-align: center;
@@ -91,15 +93,12 @@ body {
 }
 
 @media (max-width: 1150px) {
-  .container {
-    align-items: center;
-  }
-
   .container .quote {
     font-size: 25px;
   }
   .container .sidebar {
-    width: 300px;
+    min-height: 60vh;
+    width: 350px;
     margin-left: 70px;
   }
   .container .sidebar .informations .localization {
@@ -119,15 +118,22 @@ body {
     letter-spacing: 1px;
   }
 }
+@media (max-width: 900px) {
+  .container .sidebar {
+    width: 300px;
+  }
+}
 
 @media (max-width: 800px) {
   .container {
     flex-direction: column;
   }
   .container .sidebar {
-    margin: 0px auto 70px;
+    min-height: calc(60vh - 74px);
     width: 80%;
+    margin: 0px auto 70px;
     order: 0;
+    flex-grow: 1;
   }
   .container .sidebar input {
     margin: 40px auto;
@@ -137,35 +143,43 @@ body {
   }
   .container .quote {
     width: 70%;
-    margin: 40px auto;
-    padding: 0 0;
+    height: 40vh;
+    padding: 0;
     font-size: 32px;
   }
 }
 
 @media (max-width: 550px) {
   .container .sidebar {
-    margin-bottom: 60px;
+    min-height: calc(60vh - 39px);
+    margin-bottom: 35px;
   }
   .container .sidebar input {
-    margin: 40px auto;
+    margin: 32px auto;
+    height: 40px;
   }
   .container .sidebar .informations .data {
-    width: 65%;
-    margin: 30px auto;
+    margin: 25px auto;
   }
   .container .sidebar .informations .data p {
     margin: 15px 0;
+  }
+  .container .quote {
+    font-size: 25px;
   }
 }
 
 @media (max-width: 400px) {
   .container .quote {
-    text-align: left;
-    font-size: 25px;
+    font-size: 20px;
   }
   .container .sidebar {
+    min-height: calc(60vh - 42px);
     margin-bottom: 40px;
+    border-width: 1px;
+  }
+  .container .sidebar input {
+    margin: 25px auto;
   }
   .container .sidebar input::placeholder {
     font-size: 14px;
@@ -176,5 +190,66 @@ body {
   .container .sidebar .informations .data {
     width: 80%;
     font-size: 17px;
+  }
+  .container .sidebar .informations .data p {
+    margin: 8px 0;
+  }
+  .container .quote {
+    height: 40vh;
+  }
+}
+
+@media (max-width: 350px) {
+  .container .sidebar {
+    min-height: calc(58vh - 37px);
+    margin-bottom: 35px;
+  }
+  .container .quote {
+    font-size: 18px;
+    height: 42vh;
+  }
+  .container .sidebar input {
+    height: 34px;
+  }
+  .container .sidebar .informations .localization {
+    font-size: 17px;
+  }
+  .container .sidebar .informations .data {
+    font-size: 15px;
+    margin-top: 13px;
+    margin-bottom: 13px;
+  }
+}
+@media (max-height: 450px) {
+  .container {
+    flex-direction: column;
+  }
+  .container .sidebar {
+    height: 90vh;
+    width: 80%;
+    margin: 5vh auto;
+    order: 0;
+  }
+  .container .sidebar input {
+    margin: 25px auto;
+    height: 40px; /*? */
+    width: 50%;
+  }
+  .container .sidebar input::placeholder {
+    font-size: 20px;
+  }
+  .container .quote {
+    width: 70%;
+    height: 100vh;
+    padding: 0;
+    font-size: 32px;
+  }
+  .container .sidebar .informations .data {
+    margin: 10px 0 0 30px;
+  }
+  .container .sidebar .informations .data p {
+    display: block;
+    flex-wrap: wrap;
+    margin: 7px;
   }
 }
