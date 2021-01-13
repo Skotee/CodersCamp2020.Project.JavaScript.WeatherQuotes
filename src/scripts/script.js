@@ -67,7 +67,7 @@ var settings = {
 	rainCount: 0,
 	leafCount: 0,
 	snowCount: 0,
-	cloudHeight: 100,
+	cloudHeight: 50,
 	cloudSpace: 30,
 	cloudArch: 50,
 	renewCheck: 10,
@@ -116,7 +116,12 @@ function init()
 	// ☀️ set initial weather
 	
 	TweenMax.set(sunburst.node, {opacity: 0})
-	changeWeather(weather[0]);
+
+//////////////////////////////////
+///////WAŻNE//////////////////////
+//////////////////////////////////
+
+	changeWeather(weather[0]); // 0 snow //1 wind // 2 rain // 3 thunder // 4 sun
 }
 
 function onResize()
@@ -538,6 +543,7 @@ function changeWeather(weather)
 	{
 		case 'wind':
 			TweenMax.to(settings, 3, {windSpeed: 3, ease: Power2.easeInOut});
+			console.log('windspeed');
 			break;
 		case 'sun':
 			TweenMax.to(settings, 3, {windSpeed: 20, ease: Power2.easeInOut});
@@ -553,6 +559,8 @@ function changeWeather(weather)
 	{
 		case 'rain':
 			TweenMax.to(settings, 3, {rainCount: 10, ease: Power2.easeInOut});
+			console.log('windspee');
+
 			break;
 		case 'thunder':
 			TweenMax.to(settings, 3, {rainCount: 60, ease: Power2.easeInOut});

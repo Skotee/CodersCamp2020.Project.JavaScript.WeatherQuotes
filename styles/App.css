@@ -15,6 +15,7 @@ body {
 }
 
 .container .sidebar {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 500px;
@@ -43,6 +44,13 @@ body {
   text-transform: uppercase;
   background-color: rgba(68, 53, 44, 0.479);
   color: black;
+  order: 1;
+}
+
+.container .sidebar .empty {
+  height: 50px;
+  width: 75%;
+  margin: 55px auto;
 }
 
 .container .sidebar input::placeholder {
@@ -260,6 +268,7 @@ body {
   }
 }
 
+/* ANIMACJA */
 @import 'https://fonts.googleapis.com/css?family=Lato:300';
 @import 'https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css';
 html,
@@ -272,25 +281,28 @@ body,
   font-family: 'Lato', sans-serif;
 }
 
-html {
+/* html {
   background: #fff;
-}
+} */
 
-body {
+/* body {
   background: #eee;
   background: linear-gradient(0deg, rgba(0, 0, 200, 0.2), rgba(0, 0, 200, 0));
-}
+} */
 
 .background {
-  background: #eee;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  /* background: #eee;
   background: linear-gradient(
     120deg,
     rgba(50, 150, 100, 0.2),
     rgba(0, 0, 100, 0)
-  );
+  ); */
 }
 
-/* .subcontainer {
+.subcontainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -300,26 +312,30 @@ body {
   height: 100%;
   width: 100%;
   overflow: auto;
-  position: relative;
-  background: #eee;
+  position: relative; /*absolute*/
+  /* background: #eee;
   background: linear-gradient(
     240deg,
     rgba(150, 50, 50, 0.3),
-    rgba(0, 0, 200, 0)*/
-/* );
-}  */
+    rgba(0, 0, 200, 0)
+  ); */
+}
+
 nav ul {
   margin: 20px 20px 0 20px;
-  list-style-type: none;
-  padding: 0;
+  /* list-style-type: none; */
+  /* padding: 0; */
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
+}
+a {
+  cursor: pointer;
 }
 nav li a {
   display: block;
   width: 50px;
   text-align: center;
-  color: #aaa;
+  color: black;
   cursor: pointer;
 }
 nav li a:hover {
@@ -330,15 +346,18 @@ nav li a.active {
 }
 
 #card {
-  box-shadow: 9px 7px 40px -6px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  /* position: relative; */
+  /* box-shadow: 9px 7px 40px -6px rgba(0, 0, 0, 0.25); */
   overflow: hidden;
-  width: 300px;
+  width: 100%;
+  height: 100%;
+  /* width: 300px; */
   padding: 0;
-  height: 400px;
-  min-height: 300px;
-  margin: 20px;
-  border-radius: 5px;
-  position: relative;
+  /* height: 400px; */
+  /* min-height: 300px; */
+  /* margin: 20px; */
+  /* border-radius: 5px; */
 }
 /* #card .details {
   position: absolute;
@@ -365,40 +384,48 @@ nav li a.active {
   font-weight: 600;
   font-size: 22px;
 } */
-#card .details .temp {
+/* #card .details .temp {
   font-size: 60px;
   line-height: 60px;
-}
-#card .details .temp span {
+} */
+/* #card .details .temp span {
   font-size: 18px;
   line-height: 30px;
   vertical-align: top;
   margin-left: 5px;
-}
+} */
 
 .weather {
-  background-color: #dae3fd;
+  overflow: hidden;
   transition: background-color 2s ease;
 }
 .thunder .weather {
-  background-color: #9fa4ad;
-}
-.rain .weather {
-  background-color: #d8d8d8;
-}
-.sun .weather {
-  background-color: #ccccff;
-}
-.weather #inner {
-  background-color: white;
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.5) 50%,
-    rgba(255, 255, 255, 0) 100%
+    rgba(45, 43, 78, 0.5) 10%,
+    rgba(23, 21, 59, 0) 100%
   );
 }
-.weather .cloud {
-  transition: fill 2s ease;
+.rain .weather {
+  background: linear-gradient(
+    to bottom,
+    rgba(134, 131, 173, 0.5) 10%,
+    rgba(65, 62, 110, 0) 100%
+  );
+}
+.sun .weather {
+  background: linear-gradient(
+    to bottom,
+    rgba(170, 179, 47, 0.5) 10%,
+    rgba(32, 29, 71, 0) 100%
+  );
+}
+.weather #inner {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.5) 10%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 .weather #cloud1 {
   fill: #efefef;
@@ -418,9 +445,14 @@ nav li a.active {
 .thunder .weather #cloud3 {
   fill: #7b7988;
 }
+.weather .cloud {
+  transition: fill 2s ease;
+}
 
 #outer,
 #back {
-  position: fixed;
+  width: 100%;
+  height: 100%;
+  /* position: absolute; */
   pointer-events: none;
 }
