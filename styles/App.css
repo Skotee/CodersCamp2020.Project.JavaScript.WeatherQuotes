@@ -281,25 +281,10 @@ body,
   font-family: 'Lato', sans-serif;
 }
 
-/* html {
-  background: #fff;
-} */
-
-/* body {
-  background: #eee;
-  background: linear-gradient(0deg, rgba(0, 0, 200, 0.2), rgba(0, 0, 200, 0));
-} */
-
 .background {
   width: 100%;
   height: 100%;
   position: absolute;
-  /* background: #eee;
-  background: linear-gradient(
-    120deg,
-    rgba(50, 150, 100, 0.2),
-    rgba(0, 0, 100, 0)
-  ); */
 }
 
 .subcontainer {
@@ -312,88 +297,16 @@ body,
   height: 100%;
   width: 100%;
   overflow: auto;
-  position: relative; /*absolute*/
-  /* background: #eee;
-  background: linear-gradient(
-    240deg,
-    rgba(150, 50, 50, 0.3),
-    rgba(0, 0, 200, 0)
-  ); */
-}
-
-nav ul {
-  margin: 20px 20px 0 20px;
-  /* list-style-type: none; */
-  /* padding: 0; */
-  display: flex;
-  /* flex-direction: row; */
-}
-a {
-  cursor: pointer;
-}
-nav li a {
-  display: block;
-  width: 50px;
-  text-align: center;
-  color: black;
-  cursor: pointer;
-}
-nav li a:hover {
-  color: #444;
-}
-nav li a.active {
-  color: #4444ff;
+  position: relative;
 }
 
 #card {
   position: absolute;
-  /* position: relative; */
-  /* box-shadow: 9px 7px 40px -6px rgba(0, 0, 0, 0.25); */
   overflow: hidden;
   width: 100%;
   height: 100%;
-  /* width: 300px; */
   padding: 0;
-  /* height: 400px; */
-  /* min-height: 300px; */
-  /* margin: 20px; */
-  /* border-radius: 5px; */
 }
-/* #card .details {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 16px 20px;
-  color: #888;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  transition: color 2s ease;
-} */
-/* .thunder #card .details {
-  color: #ddd;
-} */
-/* #card .details .right {
-  text-align: right;
-} */
-/* #card .details #date {
-  margin: 4px 0;
-}
-#card .details #summary {
-  font-weight: 600;
-  font-size: 22px;
-} */
-/* #card .details .temp {
-  font-size: 60px;
-  line-height: 60px;
-} */
-/* #card .details .temp span {
-  font-size: 18px;
-  line-height: 30px;
-  vertical-align: top;
-  margin-left: 5px;
-} */
 
 .weather {
   overflow: hidden;
@@ -453,6 +366,5 @@ nav li a.active {
 #back {
   width: 100%;
   height: 100%;
-  /* position: absolute; */
   pointer-events: none;
 }
