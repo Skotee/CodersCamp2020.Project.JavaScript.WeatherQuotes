@@ -17,20 +17,23 @@
     <datalist id=""> </datalist>
 
     <script>
-        // API testowe - żeby działało trzeba zrobić npm install oraz npm run proxy
-        fetch('http://localhost:8010/proxy/pjp-api/rest/station/findAll')
-        .then (response => response.json())
-        .then(json => { 
-            let citiesNames = [];
 
-            json.forEach(function(obj) {
-                citiesNames.push(obj.stationName.toUpperCase());
+         fetch('city_pol.txt')
+        .then (response => response.text())
+        .then(text => { 
+            
+            let citiesNames = text.split("\n");
+            let citiesNamesWithoutDuplicates = [...new Set(citiesNames)];
+            let citiesNamesUpperCase = [];
+
+            citiesNamesWithoutDuplicates.forEach(function(obj) {
+                citiesNamesUpperCase.push(obj.toUpperCase());
             });
 
             let input = document.querySelector('input');   
             let datalist = document.querySelector('datalist');
                 
-            inputAutocomplete(input, datalist, citiesNames);
+            inputAutocomplete(input, datalist, citiesNamesUpperCase);
           
         })
         .catch(err => console.log('Request Failed', err));
@@ -42,12 +45,12 @@
             }
         }
 
-        function inputAutocomplete(input, datalist, citiesNames) {
+        function inputAutocomplete(input, datalist, citiesNamesUpperCase) {
             input.addEventListener("keyup", (e) => {
                 cleanInputOptions(datalist);
 
                 if (e.target.value.length >= 3)  {
-                    citiesNames.forEach(function(name)  {    
+                    citiesNamesUpperCase.forEach(function(name)  {    
                         let newOption = document.createElement('option');
                         if(name.startsWith(e.target.value.toUpperCase()) ) {
                             datalist.appendChild(newOption).setAttribute('value', `${name}`);
