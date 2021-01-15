@@ -12,51 +12,46 @@
     <button class="btn">Click</button>
     <p class="quote"></p>
     <p class="author"></p>
-
-
     <script>
         const btn = document.querySelector('.btn');
         const quote = document.querySelector(".quote");
         const author = document.querySelector(".author");
-
-
         // docelowo weather.main
         let weather = "Snow"
 
         const getFromRonSwanson = async () => {
-            const response = await fetch(
-                "https://ron-swanson-quotes.herokuapp.com/v2/quotes",
-            );
-            if (response.ok) {
-                const data = await response.json();
-                quote.textContent = data
-                author.textContent = "Ron Swanson";
-            } else {
-                throw new Error(`Http error: ${response.status}`);
+            try {
+                const response = await fetch(
+                    "https://ron-swanson-quotes.herokuapp.com/v2/quotes",
+                );
+                if (response.ok) {
+                    const data = await response.json();
+                    quote.textContent = data
+                    author.textContent = "Ron Swanson";
+                }
+            } catch (error) {
+                console.log(`Http error: ${response.status}`);
             }
         };
-
         const getFromBreakingBad = async () => {
-            const response = await fetch(
-                "https://breaking-bad-quotes.herokuapp.com/v1/quotes",
-            );
-            if (response.ok) {
-                const data = await response.json();
-                quote.textContent = data['0'].quote;
-                author.textContent = data['0'].author;
-            } else {
-                throw new Error(`Http error: ${response.status}`);
+            try {
+                const response = await fetch(
+                    "https://breaking-bad-quotes.herokuapp.com/v1/quotes",
+                );
+                if (response.ok) {
+                    const data = await response.json();
+                    quote.textContent = data['0'].quote;
+                    author.textContent = data['0'].author;
+                }
+            } catch (error) {
+                console.log(`Http error: ${response.status}`);;
             }
         };
         // main button
         btn.addEventListener('click', () => CheckWeatherMain(weather));
 
         function CheckWeatherMain(weather) {
-            if (weather === "Rain" || weather === "Snow") {
-                getFromRonSwanson();
-            } else {
-                getFromBreakingBad();
-            }
+            (weather === "Rain" || weather === "Snow") ? getFromRonSwanson(): getFromBreakingBad();
         }
     </script>
 </body>
