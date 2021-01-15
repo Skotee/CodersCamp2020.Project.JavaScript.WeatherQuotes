@@ -60,7 +60,7 @@ Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz
 **1,000,000 calls** /month
  api key:
 
-| a53136f1a7cfa62997f97997cfb14cde
+| :c
  |
 | --- |
 
