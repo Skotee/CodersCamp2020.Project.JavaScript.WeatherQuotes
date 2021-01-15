@@ -2,11 +2,12 @@
 
 var container = $('.container');
 var card = $('#card');
+var sidebar = $('.sidebar');
 var innerSVG = Snap('#inner');
 var outerSVG = Snap('#outer');
 var backSVG = Snap('#back');
-var summary = $('#summary');
-var date = $('#date');
+// var summary = $('#summary');
+// var date = $('#date');
 var weatherContainer1 = Snap.select('#layer1');
 var weatherContainer2 = Snap.select('#layer2');
 var weatherContainer3 = Snap.select('#layer3');
@@ -25,6 +26,7 @@ var outerLeafHolder = outerSVG.group();
 var outerSnowHolder = outerSVG.group();
 
 var lightningTimeout;
+console.log(container, card, sidebar, innerSVG, outerSVG, backSVG,weatherContainer1, weatherContainer2, weatherContainer3, innerRainHolder1, innerRainHolder2, innerRainHolder3, innerLeafHolder, innerLightningHolder, innerSnowHolder, leafMask, leaf, sun, sunburst, outerSnowHolder, outerLeafHolder, outerSplashHolder);
 
 // Set mask for leaf holder 
 
@@ -121,7 +123,7 @@ function init()
 ///////WAŻNE//////////////////////
 //////////////////////////////////
 
-	changeWeather(weather[0]); // 0 snow //1 wind // 2 rain // 3 thunder // 4 sun
+	changeWeather(weather[5]); // 0 snow //1 wind // 2 rain // 3 thunder // 4 sun
 }
 
 function onResize()
@@ -198,6 +200,7 @@ function drawCloud(cloud, i)
 
 function makeRain()
 {
+	console.log("why you don't work?")
 	// 💧 This is where we draw one drop of rain
 	
 	// first we set the line width of the line, we use this
@@ -216,8 +219,8 @@ function makeRain()
 	var x = Math.random() * (sizes.card.width - 40) + 20;
 	
 	// Draw the line
-	
-	var line = this['innerRainHolder' + (3 - Math.floor(lineWidth))].path('M0,0 0,' + lineLength).attr({
+	var Holders = [innerRainHolder1,innerRainHolder2,innerRainHolder3]
+	var line = Holders[(2 - Math.floor(lineWidth))].path('M0,0 0,' + lineLength).attr({
 		fill: 'none',
 		stroke: currentWeather.type == 'thunder' ? '#777' : '#0000ff',
 		strokeWidth: lineWidth
@@ -483,11 +486,11 @@ function reset()
 	}
 }
 
-function updateSummaryText()
-{
-	summary.html(currentWeather.name);
-	TweenMax.fromTo(summary, 1.5, {x: 30}, {opacity: 1, x: 0, ease: Power4.easeOut});
-}
+// function updateSummaryText()
+// {
+// 	summary.html(currentWeather.name);
+// 	TweenMax.fromTo(summary, 1.5, {x: 30}, {opacity: 1, x: 0, ease: Power4.easeOut});
+// }
 
 function startLightningTimer()
 {
@@ -531,8 +534,8 @@ function changeWeather(weather)
 	
 	currentWeather = weather;
 	
-	TweenMax.killTweensOf(summary);
-	TweenMax.to(summary, 1, {opacity: 0, x: -30, onComplete: updateSummaryText, ease: Power4.easeIn})
+	// TweenMax.killTweensOf(summary);
+	// TweenMax.to(summary, 1, {opacity: 0, x: -30, onComplete: updateSummaryText, ease: Power4.easeIn})
 	
 	container.addClass(weather.type);
 	weather.button.addClass('active');
@@ -559,7 +562,7 @@ function changeWeather(weather)
 	{
 		case 'rain':
 			TweenMax.to(settings, 3, {rainCount: 10, ease: Power2.easeInOut});
-			console.log('windspee');
+			console.log('RAINNNNN');
 
 			break;
 		case 'thunder':
@@ -599,8 +602,8 @@ function changeWeather(weather)
 	switch(weather.type)
 	{
 		case 'sun':
-			TweenMax.to(sun.node, 4, {x: sizes.card.width / 2, y: sizes.card.height / 2, ease: Power2.easeInOut});
-			TweenMax.to(sunburst.node, 4, {scale: 1, opacity: 0.8, y: (sizes.card.height/2) + (sizes.card.offset.top), ease: Power2.easeInOut});
+			TweenMax.to(sun.node, 4, {x: sizes.card.width / 2, y: sizes.card.height / 7, ease: Power2.easeInOut});
+			TweenMax.to(sunburst.node, 4, {scale: 1, opacity: 0.8, y: (sizes.card.height/7) + (sizes.card.offset.top), ease: Power2.easeInOut});
 			break;
 		default:
 			TweenMax.to(sun.node, 2, {x: sizes.card.width / 2, y: -100, leafCount: 0, ease: Power2.easeInOut});
