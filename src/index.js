@@ -1,8 +1,56 @@
-import 'regenerator-runtime/runtime' //async/await with Parcel
-import {App} from "./app/App";
+const weatherApiUrl = 'http://api.weatherbit.io/v2.0/current';
+const weatherApi16DaysUrl = 'http://api.weatherbit.io/v2.0/forecast/daily';
 
-const ONE_SECOND_MILLIS = 1000;
-const SW_API_BASE_URL = process.env.SW_API_BASE_URL || "https://swapi.dev/api";
-const QUIZ_MAX_TIME = process.env.QUIZ_MAX_TIME_SECONDS ? process.env.QUIZ_MAX_TIME_SECONDS * ONE_SECOND_MILLIS : 120 * ONE_SECOND_MILLIS;
+const weatherData = {
+  cityName: '',
+  temp: 0,
+  apparentTemp: 0,
+  weatherDescription: '',
+  visilibity: 0,
+  windSpeed: 0,
+  sunrise: '',
+  sunset: '',
+};
 
-window.onload = () => App({options: {swApiBaseUrl: SW_API_BASE_URL, quizMaxTime: QUIZ_MAX_TIME}})
+window.onload = () => {
+  getWeather();
+};
+
+function getWeather() {
+  fetch(
+    'https://api.weatherbit.io/v2.0//current?lat=50&lon=19&key=795441d8fff6483ba206361518dc84f3',
+    { method: 'GET' },
+  )
+    .then((resp) => {
+      if (resp.ok) return resp.json();
+      else throw new Error('Błąd sieci!');
+    })
+    .then((data) => {
+      setWeatherData(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+const setWeatherData = (data) => {
+  weatherData.cityName = data.data[0].city_name;
+  weatherData.temp = data.data[0].temp;
+  weatherData.apparentTemp = data.data[0].app_temp;
+  weatherData.weatherDescription = data.data[0].weather.description;
+  weatherData.visilibity = data.data[0].vis;
+  weatherData.windSpeed = data.wind_spd;
+  weatherData.sunrise = data.sunrise;
+  weatherData.sunset = data.sunset;
+
+  insertWeatherDataToStage();
+};
+
+const insertWeatherDataToStage = () => {
+  const cityName = (document.querySelector(
+    '.city .data',
+  ).innerText = `${weatherData.cityName}`);
+  const temperature = (document.querySelector(
+    '.temperature .data',
+  ).innerText = `${weatherData.temp}`);
+};
