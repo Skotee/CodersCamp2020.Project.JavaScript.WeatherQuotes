@@ -6,12 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-
     <input list="search" type="text" placeholder="Wpisz nazwę miasta">
     <datalist id=""> </datalist>
 
     <script>
-
          fetch('city_pol.txt')
         .then (response => response.text())
         .then(text => { 
@@ -28,7 +26,6 @@
             let datalist = document.querySelector('datalist');
                 
             inputAutocomplete(input, datalist, citiesNamesUpperCase);
-          
         })
         .catch(err => console.log('Request Failed', err));
 
