@@ -1,16 +1,13 @@
 // autouzupelnianie miasta
-
 function getCity() {
     var options = {
     types: ['(cities)'],
     componentRestrictions: {
         country: "pol"
     }};
-
     var input = document.getElementById('searchTextField');
     var autocomplete = new google.maps.places.Autocomplete(input, options);
 }
-
 google.maps.event.addDomListener(window, 'load', getCity);
 const btn = document.getElementById("searchPlaceBtn");
 btn.addEventListener("click", function(){
@@ -19,15 +16,12 @@ btn.addEventListener("click", function(){
 })
 
 // autolokalizacja
-
 const localization = {location: {lat: 0, lng: 0}, formatted_address: ""}
       const KEY = "AIzaSyDyXP9UaV5zNdPtmkW2jF8_SwCiH8-QSms"
-
       let findMebtn = document.getElementById("FindMeBtn");
       let foramttedAdressParagraph = document.getElementById("info");
       findMebtn.addEventListener("click",getLocation);
-        
-        
+ 
       // sprawdzam dlugosc i szerokosc geograficzna, a nastepnie wrzucam je google maps api
       function showPosition(position) {
         const LAT = position.coords.latitude;
