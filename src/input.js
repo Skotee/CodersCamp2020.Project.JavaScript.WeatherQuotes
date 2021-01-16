@@ -27,11 +27,11 @@ function inputAutocomplete(citiesNamesUpperCase) {
     input.addEventListener("keyup", (e) => {
         cleanInputOptions(datalist);
 
-        if (e.target.value.length >= 3)  {
+        if (e.target.value.length >= 2)  {
             citiesNamesUpperCase.forEach(function(name)  {    
                 let newOption = document.createElement('option');
                 if(name.startsWith(e.target.value.toUpperCase()) ) {
-                    datalist.appendChild(newOption).setAttribute('value', `${name}`);
+                    datalist.appendChild(newOption).setAttribute('value', `${name.slice(0, -1)}`);
                 }
             })
 
