@@ -1,3 +1,4 @@
+import { getWeather } from './scripts/getWeatherForecast.js';
 // autolokalizacja
 const localization = {location: {lat: 0, lng: 0}, formatted_address: ""}
 const KEY = "AIzaSyDyXP9UaV5zNdPtmkW2jF8_SwCiH8-QSms"
@@ -5,7 +6,10 @@ let findMebtn = document.getElementById("FindMeBtn");
 let foramttedAdressParagraph = document.getElementById("info");
 findMebtn.addEventListener("click",getLocation);
 let temporaryCityInfo = document.getElementById("test");
- 
+ document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM elements for Weather Quotes are ready');
+  getWeather();
+});
 // sprawdzam dlugosc i szerokosc geograficzna, a nastepnie wrzucam je google maps api
 function showPosition(position) {
     const LAT = position.coords.latitude;
@@ -26,3 +30,4 @@ async function getLocation(){
     console.log(localization);
     
 }
+

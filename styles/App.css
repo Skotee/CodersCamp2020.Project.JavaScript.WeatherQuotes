@@ -1,3 +1,9 @@
+@import './variables.css';
+@import './reset.css';
+@import './weatherAnimation.css';
+@import './weatherDataDetails.css';
+@import './weatherDataBox.css';
+
 body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
@@ -13,7 +19,6 @@ body {
   background-size: cover;
   align-items: center;
 }
-
 .container .sidebar {
   position: relative;
   display: flex;

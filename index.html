@@ -8,45 +8,95 @@
     <link rel="stylesheet" href="styles/App.css" />
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet" />
-    
-</head>
-<body>
-    <div class="container">
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main>
+      <div class="container">
         <div class="quote">
-            <div class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, consectetur
-                enim!
-            </div>
-            <div class="author">CodersCamp AK Team</div>
+          <div class="content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Repudiandae, consectetur enim!
+          </div>
+          <div class="author">CodersCamp AK Team</div>
         </div>
         <div class="sidebar">
-            <div class="background">
-                <div class="subcontainer">	
-                <svg id="back">
-                    <radialGradient id="SVGID_1_" cx="0" cy="0" r="320.8304" gradientUnits="userSpaceOnUse">
-                        <stop  offset="0" style="stop-color:#FFDE17;stop-opacity:0.7"/>
-                        <stop  offset="1" style="stop-color:#FFF200;stop-opacity:0"/>
-                    </radialGradient>
-                    <path id="sunburst" style="fill:url(#SVGID_1_);"/>
+          <div class="background">
+            <div class="subcontainer">
+              <svg id="back">
+                <radialGradient
+                  id="SVGID_1_"
+                  cx="0"
+                  cy="0"
+                  r="320.8304"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop
+                    offset="0"
+                    style="stop-color: #ffde17; stop-opacity: 0.7"
+                  />
+                  <stop
+                    offset="1"
+                    style="stop-color: #fff200; stop-opacity: 0"
+                  />
+                </radialGradient>
+                <path
+                  id="sunburst"
+                  style="fill: url(#SVGID_1_)"
+                  d="M0,319.7c-18.6,0-37.3-1.6-55.5-4.8L-7.8,41.4c5.1,0.9,10.6,0.9,15.7,0L56,314.8C37.6,318,18.8,319.7,0,319.7z
+                 M-160.8,276.6c-32.5-18.8-61.3-42.9-85.5-71.6L-34,26.2c3.4,4.1,7.4,7.4,12,10.1L-160.8,276.6z M161.3,276.4L22.1,36.2
+                c4.5-2.6,8.6-6,12-10.1l212.6,178.5C222.5,233.4,193.8,257.6,161.3,276.4z M-302.5,108.3C-315.4,73-321.9,36-322-1.8l277.6-0.5
+                c0,5.3,0.9,10.4,2.7,15.2L-302.5,108.3z M302.6,107.8L41.8,12.8c1.7-4.7,2.6-9.7,2.6-14.9c0-0.3,0-0.6,0-1H322l0-1.3l0,1.9
+                C322,35.4,315.5,72.5,302.6,107.8z M-41.8-17.5l-261-94.5c12.8-35.4,31.6-68,55.8-96.9L-34.1-30.8C-37.5-26.8-40.1-22.3-41.8-17.5z
+                 M41.7-17.7c-1.8-4.8-4.4-9.3-7.8-13.3l212-179.2c24.3,28.8,43.3,61.3,56.3,96.6L41.7-17.7z M-22.2-40.8l-139.6-240
+                c32.7-19,68.1-32,105.2-38.6L-8-46.1C-13-45.2-17.8-43.4-22.2-40.8z M22-40.9c-4.4-2.6-9.2-4.3-14.2-5.1l47.1-273.6
+                c37.2,6.4,72.7,19.2,105.4,38L22-40.9z"
+                />
+              </svg>
+              <div id="card" class="weather">
+                <svg id="inner">
+                  <defs>
+                    <path
+                      id="leaf"
+                      d="M41.9,56.3l0.1-2.5c0,0,4.6-1.2,5.6-2.2c1-1,3.6-13,12-15.6c9.7-3.1,19.9-2,26.1-2.1c2.7,0-10,23.9-20.5,25 c-7.5,0.8-17.2-5.1-17.2-5.1L41.9,56.3z"
+                    />
+                  </defs>
+                  <circle id="sun" style="fill: #f7ed47" cx="0" cy="0" r="50" />
+                  <g id="layer3"></g>
+                  <g id="cloud3" class="cloud"></g>
+                  <g id="layer2"></g>
+                  <g id="cloud2" class="cloud"></g>
+                  <g id="layer1"></g>
+                  <g id="cloud1" class="cloud"></g>
                 </svg>
-                <div id="card" class="weather">
-                    <svg id="inner">
-                        <defs>
-                            <path id="leaf" d="M41.9,56.3l0.1-2.5c0,0,4.6-1.2,5.6-2.2c1-1,3.6-13,12-15.6c9.7-3.1,19.9-2,26.1-2.1c2.7,0-10,23.9-20.5,25 c-7.5,0.8-17.2-5.1-17.2-5.1L41.9,56.3z"/>
-                        </defs>
-                        <circle id="sun" style="fill: #F7ED47" cx="0" cy="0" r="50"/>
-                        <g id="layer3"></g>
-                        <g id="cloud3" class="cloud"></g>
-                        <g id="layer2"></g>
-                        <g id="cloud2" class="cloud"></g>
-                        <g id="layer1"></g>
-                        <g id="cloud1" class="cloud"></g>
-                    </svg>
-                </div>
-                <svg id="outer"></svg>
+              </div>
+              <svg id="outer"></svg>
             </div>
+          </div>
+          <div class="empty"></div>
+          <input type="text" placeholder="Wpisz nazwę miasta" />
+          <div class="weatherbox-wrapper">
+            <div class="details-wrapper cityName">
+              <p class="label">Wybrane miasto:</p>
+              <p class="data"></p>
             </div>
+            <div class="details-wrapper temp">
+              <span class="label">Temperatura:</span>
+              <span class="data"></span>
+              <span class="label"><sup>o</sup>C</span>
+            </div>
+            <div class="details-wrapper apparentTemp">
+              <span class="label">Odczuwalna temperatura:</span>
+              <span class="data"></span>
+              <span class="label"><sup>o</sup>C</span>
+            </div>
+            <div class="details-wrapper visilibity">
+              <span class="label">Widoczność:</span>
+              <span class="data"></span>
+              <span class="label">km</span>
             <div class="empty"></div>
             <div class="searchCity">
                 <input list="search" type="text" placeholder="Wpisz nazwę miasta">
@@ -64,13 +114,28 @@
                     <p>ZACHMURZENIE: <span id="cloudage">?</span></p>
                     <p>OPADY: <span id="rainfall">?</span></p> <!-- śniegu/deszczu/gradu/brak -->
                     <p>WILGOTNOŚĆ: <span id="humidity">?</span></p>
-                </div>
             </div>
+            <div class="details-wrapper windSpeed">
+              <span class="label">Prędkość wiatru:</span>
+              <span class="data"></span>
+              <span class="label">m/s</span>
+            </div>
+            <div class="details-wrapper sunrise">
+              <span class="label">Wschód słońca:</span>
+              <span class="data"></span>
+            </div>
+
+            <p class="details-wrapper sunset">
+              <span class="label">Zachód słońca:</span>
+              <span class="data"></span>
+            </p>
+          </div>
         </div>
+      </div>
+    </main>
     </div>
 
         
-
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyXP9UaV5zNdPtmkW2jF8_SwCiH8-QSms&libraries=places"></script>
     <script src="src/index.js"></script>    
     <script src="src/input.js"></script> 
@@ -80,6 +145,15 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/jquery.gsap.min.js" integrity="sha512-K43Gi6p1AN9cBmgnY3XE1ii0wc2Rl4dArjMgYeXpYmLSZGA7jXWcX4Drj52m2K9js6qHSRQoYlKyO4sSr3nbSg==" crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w==" crossorigin="anonymous"></script>
     <script src="src/scripts/script.js"></script>
-</body>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.js" defer></script>
+    <script src="src/scripts/snap.js" defer></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
+      integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="src/scripts/script.js" defer></script>
+    <script type="module" src="src/index.js" defer></script>
+  </body>
 </html>
