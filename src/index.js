@@ -10,6 +10,7 @@ function getCity() {
 }
 
 google.maps.event.addDomListener(window, 'load', getCity);
+
 const btn = document.getElementById("searchPlaceBtn");
 btn.addEventListener("click", function(){
     var city = document.getElementById("searchTextField").value;

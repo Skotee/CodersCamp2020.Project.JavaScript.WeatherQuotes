@@ -48,7 +48,8 @@
             </div>
             </div>
             <div class="empty"></div>
-            <input type="text" placeholder="Wpisz nazwę miasta">
+            <input list="search" type="text" placeholder="Wpisz nazwę miasta">
+            <datalist id="search"> </datalist>
             <div class="informations">
                 <div class="localization">???</div>
                 <div class="data">
@@ -61,18 +62,14 @@
             </div>
         </div>
     </div>
-    <div class="">
-        <h2>Wyszukiwanie miasta</h2>
-        <input id="searchTextField" />
-        <button id="searchPlaceBtn" type="submit">Szukaj</button>
 
         <h2>Autolokalizacja</h2>
         <p id="info"></p>
         <button id="FindMeBtn">click me</button>
-    </div>
-    
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyXP9UaV5zNdPtmkW2jF8_SwCiH8-QSms&libraries=places"></script>
     <script src="src/index.js"></script>    
+    <script src="src/input.js"></script> 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="src/scripts/snap.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script> -->

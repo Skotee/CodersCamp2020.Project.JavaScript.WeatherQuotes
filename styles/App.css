@@ -36,9 +36,10 @@ body {
   border-radius: 50px;
   font-size: 25px;
   text-transform: uppercase;
-  background-color: rgba(68, 53, 44, 0.479);
+  background-color: rgba(128, 78, 47, 0.479);
   color: black;
   order: 1;
+  z-index: 2;
 }
 
 .container .sidebar .empty {
