@@ -1,5 +1,8 @@
 //wywołanie funkcji ChangeWeather linijka 106
 // 📝 Fetch all DOM nodes in jQuery and Snap SVG
+// Snap.js chyba nie jest modułem
+// import ES6 powinniśmy chyba używać wewnątrz modułów ES6
+// 
 
 var container = $('.container');
 var card = $('#card');
