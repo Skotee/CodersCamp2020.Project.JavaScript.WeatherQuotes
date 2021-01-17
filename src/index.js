@@ -1,22 +1,3 @@
-// autouzupelnianie miasta
-function getCity() {
-    var options = {
-    types: ['(cities)'],
-    componentRestrictions: {
-        country: "pol"
-    }};
-    var input = document.getElementById('searchTextField');
-    var autocomplete = new google.maps.places.Autocomplete(input, options);
-}
-
-google.maps.event.addDomListener(window, 'load', getCity);
-
-const btn = document.getElementById("searchPlaceBtn");
-btn.addEventListener("click", function(){
-    var city = document.getElementById("searchTextField").value;
-    console.log(city);
-})
-
 // autolokalizacja
 const localization = {location: {lat: 0, lng: 0}, formatted_address: ""}
 const KEY = "AIzaSyDyXP9UaV5zNdPtmkW2jF8_SwCiH8-QSms"
