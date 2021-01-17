@@ -30,7 +30,7 @@ body {
 .container .sidebar input {
   height: 50px;
   width: 75%;
-  margin: 55px auto;
+  margin: 0 auto 55px;
   text-align: center;
   border: 1px black solid;
   border-radius: 50px;
@@ -144,7 +144,7 @@ body {
     flex-grow: 1;
   }
   .container .sidebar input {
-    margin: 40px auto;
+    margin: 0 auto 40px;
   }
   .container .sidebar .informations .data {
     margin: 30px 70px;
@@ -163,7 +163,7 @@ body {
     margin-bottom: 35px;
   }
   .container .sidebar input {
-    margin: 32px auto;
+    margin: 0 auto 32px;
     height: 40px;
   }
   .container .sidebar .informations .data {
@@ -187,7 +187,7 @@ body {
     border-width: 1px;
   }
   .container .sidebar input {
-    margin: 25px auto;
+    margin: 0 auto 25px;
   }
   .container .sidebar input::placeholder {
     font-size: 14px;
@@ -239,7 +239,6 @@ body {
     order: 0;
   }
   .container .sidebar input {
-    margin: 25px auto;
     height: 40px; /*? */
     width: 50%;
   }
