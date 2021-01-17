@@ -35,6 +35,7 @@ body {
   justify-content: center;
   
 }
+
 /* usunalem outline z pola na tekst */
 input:focus{
   outline: none;
@@ -43,7 +44,7 @@ input:focus{
 .container .sidebar .searchCity input {
   height: 50px;
   width: 75%;
-  margin: 0 auto 5px;
+  margin: 0 auto 10px;
   text-align: center;
   border: 1px black solid;
   border-radius: 50px;
