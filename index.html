@@ -48,10 +48,16 @@
             </div>
             </div>
             <div class="empty"></div>
-            <input list="search" type="text" placeholder="Wpisz nazwę miasta">
+            <div class="searchCity">
+                <input list="search" type="text" placeholder="Wpisz nazwę miasta">
+                <button class="find">Szukaj</button>
+                <p id="FindMeBtn">Jeli nie wiesz gdzie jesteś kliknij <span>TUTAJ</span> !</p>
+            </div>
+            
+            
             <datalist id="search"> </datalist>
             <div class="informations">
-                <div class="localization">???</div>
+                <div class="localization" id="test">???</div>
                 <div class="data">
                     <!-- dane przykładowe -->
                     <p>TEMPERATURA: <span id="temperature">?</span></p>
@@ -63,9 +69,7 @@
         </div>
     </div>
 
-        <h2>Autolokalizacja</h2>
-        <p id="info"></p>
-        <button id="FindMeBtn">click me</button>
+        
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyXP9UaV5zNdPtmkW2jF8_SwCiH8-QSms&libraries=places"></script>
     <script src="src/index.js"></script>    

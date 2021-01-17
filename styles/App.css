@@ -27,10 +27,23 @@ body {
   overflow: hidden;
 }
 
-.container .sidebar input {
+.container .sidebar .searchCity{
+  display: flex;
+  flex-direction: column;
+  order: 1;
+  z-index: 2;
+  justify-content: center;
+  
+}
+/* usunalem outline z pola na tekst */
+input:focus{
+  outline: none;
+}
+
+.container .sidebar .searchCity input {
   height: 50px;
   width: 75%;
-  margin: 0 auto 55px;
+  margin: 0 auto 5px;
   text-align: center;
   border: 1px black solid;
   border-radius: 50px;
@@ -38,8 +51,39 @@ body {
   text-transform: uppercase;
   background-color: rgba(128, 78, 47, 0.479);
   color: black;
-  order: 1;
-  z-index: 2;
+}
+
+.container .sidebar .searchCity .find{
+  display: block;
+  height: 45px;
+  padding: 10px 15px;
+  margin: 5px auto;
+  font-size: 17px;
+  letter-spacing: 3px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  border: 1px black solid;
+  color: rgba(192, 181, 181, 0.842);
+  background-color: rgba(37, 29, 25, 0.65);
+}
+
+.container .sidebar .searchCity .find:hover{
+  color: rgba(51, 44, 40, 0.65);
+  background-color: rgba(192, 181, 181, 0.842);
+}
+
+.container .sidebar .searchCity p{
+  display: block;
+  text-align: center;
+  margin-bottom: 1px;
+  color: black;
+}
+
+.container .sidebar .searchCity p span{
+  text-decoration: underline;
+}
+.container .sidebar .searchCity p a:hover{
+  color: orange;
 }
 
 .container .sidebar .empty {
@@ -48,7 +92,7 @@ body {
   margin: 55px auto;
 }
 
-.container .sidebar input::placeholder {
+.container .sidebar .searchCity input::placeholder {
   color: rgba(0, 0, 0, 0.664);
   letter-spacing: 2px;
 }
@@ -96,7 +140,7 @@ body {
     order: -1;
   }
 
-  .container .sidebar input {
+  .container .sidebar .searchCity input {
     font-size: 20px;
   }
 }
@@ -122,7 +166,7 @@ body {
     margin: 0 60px;
   }
 
-  .container .sidebar input::placeholder {
+  .container .sidebar .searchCity input::placeholder {
     font-size: 16px;
     letter-spacing: 1px;
   }
@@ -144,8 +188,8 @@ body {
     order: 0;
     flex-grow: 1;
   }
-  .container .sidebar input {
-    margin: 0 auto 40px;
+  .container .sidebar .searchCity input {
+    /* margin: 0 auto 40px; */
   }
   .container .sidebar .informations .data {
     margin: 30px 70px;
@@ -163,8 +207,8 @@ body {
     min-height: calc(60vh - 39px);
     margin-bottom: 35px;
   }
-  .container .sidebar input {
-    margin: 0 auto 32px;
+  .container .sidebar .searchCity input {
+    /* margin: 0 auto 32px; */
     height: 40px;
   }
   .container .sidebar .informations .data {
@@ -187,10 +231,10 @@ body {
     margin-bottom: 40px;
     border-width: 1px;
   }
-  .container .sidebar input {
-    margin: 0 auto 25px;
+  .container .sidebar .searchCity input {
+    /* margin: 0 auto 25px; */
   }
-  .container .sidebar input::placeholder {
+  .container .sidebar .searchCity input::placeholder {
     font-size: 14px;
   }
   .container .sidebar .informations .localization {
@@ -217,7 +261,7 @@ body {
     font-size: 18px;
     height: 42vh;
   }
-  .container .sidebar input {
+  .container .sidebar .searchCity input {
     height: 34px;
   }
   .container .sidebar .informations .localization {
@@ -239,11 +283,11 @@ body {
     margin: 5vh auto;
     order: 0;
   }
-  .container .sidebar input {
+  .container .sidebar .searchCity input {
     height: 40px; /*? */
     width: 50%;
   }
-  .container .sidebar input::placeholder {
+  .container .sidebar .searchCity input::placeholder {
     font-size: 20px;
   }
   .container .quote {
