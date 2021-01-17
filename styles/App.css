@@ -25,12 +25,6 @@ body {
   border: 2px solid black;
   flex-shrink: 0;
   overflow: hidden;
-  /* background: #eee; */
-  /* background: linear-gradient(
-    240deg,
-    rgba(150, 50, 50, 0.3),
-    rgba(0, 0, 200, 0)
-  ); */
 }
 
 .container .sidebar input {
@@ -296,7 +290,7 @@ body,
   padding: 0;
   height: 100%;
   width: 100%;
-  overflow: auto;
+  overflow-y: hidden;
   position: relative;
 }
 
