@@ -1,11 +1,10 @@
+//wywołanie funkcji ChangeWeather linijka 106
 // 📝 Fetch all DOM nodes in jQuery and Snap SVG
 
 var container = $('.container');
 var card = $('#card');
 var innerSVG = Snap('#inner');
 var outerSVG = Snap('#outer');
-var backSVG = Snap('#back');
-var summary = $('#summary');
 var date = $('#date');
 var weatherContainer1 = Snap.select('#layer1');
 var weatherContainer2 = Snap.select('#layer2');
@@ -33,7 +32,6 @@ outerLeafHolder.attr({
 });
 
 // create sizes object, we update this later
-console.log('siema');
 
 var sizes = {
   container: { width: 0, height: 0 },
@@ -56,6 +54,7 @@ var weather = [
   { type: 'rain', name: 'Rain' },
   { type: 'thunder', name: 'Storms' },
   { type: 'sun', name: 'Sunny' },
+  { type: 'cloudy', name: 'Cloudy' },
 ];
 
 // 🛠 app settings
@@ -117,7 +116,7 @@ function init() {
   ///////WAŻNE//////////////////////
   //////////////////////////////////
 
-  changeWeather(weather[0]); // 0 snow //1 wind // 2 rain // 3 thunder // 4 sun
+  changeWeather(weather[0]); // 0 snow //1 wind // 2 rain // 3 thunder // 4 sun // 5 clouds
 }
 
 function onResize() {
@@ -227,7 +226,8 @@ function makeRain() {
 
   // Draw the line
 
-  var line = this['innerRainHolder' + (3 - Math.floor(lineWidth))]
+  var Holders = [innerRainHolder1,innerRainHolder2,innerRainHolder3]
+	var line = Holders[(2 - Math.floor(lineWidth))]
     .path('M0,0 0,' + lineLength)
     .attr({
       fill: 'none',
@@ -591,15 +591,18 @@ function changeWeather(weather) {
   container.addClass(weather.type);
   weather.button.addClass('active');
 
+
   // windSpeed
 
   switch (weather.type) {
     case 'wind':
       TweenMax.to(settings, 3, { windSpeed: 3, ease: Power2.easeInOut });
-      console.log('windspeed');
       break;
     case 'sun':
       TweenMax.to(settings, 3, { windSpeed: 20, ease: Power2.easeInOut });
+      break;
+    case 'cloudy':
+      TweenMax.to(settings, 3, { windSpeed: 0.7, ease: Power2.easeInOut });
       break;
     default:
       TweenMax.to(settings, 3, { windSpeed: 0.5, ease: Power2.easeOut });
@@ -611,7 +614,6 @@ function changeWeather(weather) {
   switch (weather.type) {
     case 'rain':
       TweenMax.to(settings, 3, { rainCount: 10, ease: Power2.easeInOut });
-      console.log('windspee');
 
       break;
     case 'thunder':
@@ -650,7 +652,7 @@ function changeWeather(weather) {
     case 'sun':
       TweenMax.to(sun.node, 4, {
         x: sizes.card.width / 2,
-        y: sizes.card.height / 2,
+        y: sizes.card.height / 7,
         ease: Power2.easeInOut,
       });
       TweenMax.to(sunburst.node, 4, {

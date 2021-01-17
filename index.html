@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -97,6 +97,23 @@
               <span class="label">Widoczność:</span>
               <span class="data"></span>
               <span class="label">km</span>
+            <div class="empty"></div>
+            <div class="searchCity">
+                <input list="search" type="text" placeholder="Wpisz nazwę miasta">
+                <button class="find">Szukaj</button>
+                <p id="FindMeBtn">Jeli nie wiesz gdzie jesteś kliknij <span>TUTAJ</span> !</p>
+            </div>
+            
+            
+            <datalist id="search"> </datalist>
+            <div class="informations">
+                <div class="localization" id="test">???</div>
+                <div class="data">
+                    <!-- dane przykładowe -->
+                    <p>TEMPERATURA: <span id="temperature">?</span></p>
+                    <p>ZACHMURZENIE: <span id="cloudage">?</span></p>
+                    <p>OPADY: <span id="rainfall">?</span></p> <!-- śniegu/deszczu/gradu/brak -->
+                    <p>WILGOTNOŚĆ: <span id="humidity">?</span></p>
             </div>
             <div class="details-wrapper windSpeed">
               <span class="label">Prędkość wiatru:</span>
@@ -116,7 +133,18 @@
         </div>
       </div>
     </main>
+    </div>
 
+        
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyXP9UaV5zNdPtmkW2jF8_SwCiH8-QSms&libraries=places"></script>
+    <script src="src/index.js"></script>    
+    <script src="src/input.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="src/scripts/snap.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/jquery.gsap.min.js" integrity="sha512-K43Gi6p1AN9cBmgnY3XE1ii0wc2Rl4dArjMgYeXpYmLSZGA7jXWcX4Drj52m2K9js6qHSRQoYlKyO4sSr3nbSg==" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w==" crossorigin="anonymous"></script>
+    <script src="src/scripts/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js" defer></script>
     <script src="src/scripts/snap.js" defer></script>
     <script
