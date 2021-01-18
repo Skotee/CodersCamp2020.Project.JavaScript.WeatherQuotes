@@ -93,13 +93,13 @@ gsap
 
 # Etapy
 
-1.
-## Zrobienie mockupu
+
+## 1.Zrobienie mockupu
 
 Stworzenie wstępnego projektu Weather Quotes z użyciem Figmy oraz rozpisanie zadań do wykonania z użyciem Trello.
 
-1.
-## Zrobienie funkcjonalności
+
+## 2.Zrobienie funkcjonalności
 
 - Napisanie kodu, który pobiera dane z API i wyświetla je na stronie.
 - Wykonanie animacji w zależności od prognozy pogody.
