@@ -38,7 +38,7 @@ var weatherData = {
 const getAndDisplayQuotes = async () => {
   const ContentElement = document.querySelector("#quote-content");
   const AuthorElement = document.querySelector("#quote-author");
-
+  // weatherData.weatherType = 'Snow'
   let quote = await CheckWeatherMain(weatherData.weatherType);
 
   displayQuotes(quote, ContentElement, AuthorElement);
@@ -47,7 +47,7 @@ const getAndDisplayQuotes = async () => {
 
 const getWeather = async () => {
   try {
-    const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${localization.lat}&lon=${localization.lng}&appid=${API_KEY}`;
+    const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${localization.lat}&lon=${localization.lng}&appid=${API_KEY}&units=metric`;
     const response = await fetch(`${weatherApiUrl}`)
     if (response.ok) {
       const data = await response.json();
