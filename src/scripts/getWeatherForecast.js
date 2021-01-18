@@ -10,12 +10,15 @@ const weatherData = {
   sunset: '',
 };
 
-function getWeather() {
-  fetch(`${weatherApiUrl}?lat=50&lon=19&key=795441d8fff6483ba206361518dc84f3`, {
-    method: 'GET',
-  })
-    .then((resp) => {
-      if (resp.ok) return resp.json();
+async function getWeather() {
+  const response = await fetch(
+    `${weatherApiUrl}?lat=50&lon=19&key=795441d8fff6483ba206361518dc84f3`,
+    {
+      method: 'GET',
+    },
+  )
+    .then((response) => {
+      if (response.ok) return response.json();
       else throw new Error('Network error');
     })
     .then((data) => {
