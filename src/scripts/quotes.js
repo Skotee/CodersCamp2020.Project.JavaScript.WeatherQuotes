@@ -5,11 +5,18 @@ export const getFromRonSwanson = async () => {
         )
         if (response.ok) {
             const data = await response.json();
-            quote.textContent = data
-            author.textContent = "Ron Swanson";
+            
+            return {
+                quote: data,
+                author: "Ron Swanson",
+            };
         }
     } catch (error) {
         console.log(`Http error: ${response.status}`);
+        return {
+            quote: '',
+            author: '',
+        };
     }
 };
 
