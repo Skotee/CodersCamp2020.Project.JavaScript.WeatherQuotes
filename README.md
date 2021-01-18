@@ -1,4 +1,4 @@
-## ![](RackMultipart20210115-4-zrtfkx_html_5142fe91682defd7.png)
+## ![](RackMultipart20210118-4-euuf9o_html_5142fe91682defd7.png)
 
 # **WeatherQuotes**
 
@@ -12,6 +12,8 @@ Role w projekcie:
 - Klient - Arek
 
 # Opis projektu
+
+Strona Weather Quotes informuje użytkownika o stanie pogody w wybranym przez niego miejscu oraz stara się go zainspirować cytatem generowanym losowo w zależności od pogody. Wstępny podgląd projektu można znaleźć [tutaj](https://www.figma.com/file/aiMZLAK36HkWFWEzRHEPPS/Weather-Quotes---Javascript-WeatherQuotes--?node-id=0%3A1).
 
 # Cele
 
@@ -43,13 +45,16 @@ Role w projekcie:
 
 # Użyte biblioteki:
 
-Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst.
+snap
+
+gsap
 
 # Użyte narzędzia:
 
 - [Colormind - the AI powered color palette generator](http://colormind.io/)
 - [https://apilist.fun/collection/free-apis](https://apilist.fun/collection/free-apis)
--
+- [https://trello.com/home](https://trello.com/home)
+- [https://www.figma.com](https://www.figma.com/)
 
 # Użyte API (linki):
 
@@ -60,15 +65,21 @@ Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz
 **1,000,000 calls** /month
  api key:
 
-| :c
+| a53136f1a7cfa62997f97997cfb14cde
+2. cytaty: [Ron Swanson Quotes](https://github.com/jamesseanwright/ron-swanson-quotes)[Breaking Bad Quotes](https://github.com/shevabam/breaking-bad-quotes)
  |
 | --- |
-
-1. [lokalizacja](https://developers.google.com/maps/documentation/geocoding/overview) (Geocoding API)
 
 # API pogodowe:
 
 1. dane:
+  1. nazwa miasta!
+  2. temperatura!
+  3. dczuwalna temperatura!
+  4. pis pogody
+  5. widoczność
+  6. szybkość wiatru!
+  7. wschód/zachód słońca
 
 ### **Flow Git&#39;a**
 
@@ -78,17 +89,21 @@ Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz
 4. co najmniej 2 osoby robią code review danego kodu
 5. jeśli pozytywnie przejdzie on przez dwie osoby, wtedy osoba która wystawiła pull request może zmergować brancha, lub TechLead
 
+#
+
 # Etapy
 
 1.
 ## Zrobienie mockupu
 
-Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst.
+Stworzenie wstępnego projektu Weather Quotes z użyciem Figmy oraz rozpisanie zadań do wykonania z użyciem Trello.
 
 1.
 ## Zrobienie funkcjonalności
 
-Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst Wpisz tu tekst.
+- Napisanie kodu, który pobiera dane z API i wyświetla je na stronie.
+- Wykonanie animacji w zależności od prognozy pogody.
+- Zmiana tła w zależności od prognozy pogody.
 
 ### **Kod startowy projektu**
 
