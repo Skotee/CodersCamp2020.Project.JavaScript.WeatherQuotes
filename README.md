@@ -76,10 +76,8 @@ gsap
   1. nazwa miasta!
   2. temperatura!
   3. dczuwalna temperatura!
-  4. pis pogody
-  5. widoczność
-  6. szybkość wiatru!
-  7. wschód/zachód słońca
+  4. stopień zachmurzenia
+ 
 
 ### **Flow Git&#39;a**
 
