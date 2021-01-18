@@ -66,9 +66,9 @@ gsap
  api key:
 
 | a53136f1a7cfa62997f97997cfb14cde
+
 2. cytaty: [Ron Swanson Quotes](https://github.com/jamesseanwright/ron-swanson-quotes)[Breaking Bad Quotes](https://github.com/shevabam/breaking-bad-quotes)
- |
-| --- |
+
 
 # API pogodowe:
 
