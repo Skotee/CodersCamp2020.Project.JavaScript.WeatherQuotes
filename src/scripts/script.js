@@ -1,11 +1,13 @@
+//wywołanie funkcji ChangeWeather linijka 106
 // 📝 Fetch all DOM nodes in jQuery and Snap SVG
+// Snap.js chyba nie jest modułem
+// import ES6 powinniśmy chyba używać wewnątrz modułów ES6
+// 
 
 var container = $('.container');
 var card = $('#card');
 var innerSVG = Snap('#inner');
 var outerSVG = Snap('#outer');
-var backSVG = Snap('#back');
-var summary = $('#summary');
 var date = $('#date');
 var weatherContainer1 = Snap.select('#layer1');
 var weatherContainer2 = Snap.select('#layer2');
@@ -33,7 +35,6 @@ outerLeafHolder.attr({
 });
 
 // create sizes object, we update this later
-console.log('siema');
 
 var sizes = {
   container: { width: 0, height: 0 },
@@ -93,16 +94,6 @@ requestAnimationFrame(tick);
 
 function init() {
   onResize();
-
-  // 🖱 bind weather menu buttons
-
-  for (var i = 0; i < weather.length; i++) {
-    var w = weather[i];
-    var b = $('#button-' + w.type);
-    w.button = b;
-    b.bind('click', w, changeWeather);
-  }
-
   // ☁️ draw clouds
 
   for (var i = 0; i < clouds.length; i++) {
@@ -118,7 +109,7 @@ function init() {
   ///////WAŻNE//////////////////////
   //////////////////////////////////
 
-  changeWeather(weather[5]); // 0 snow //1 wind // 2 rain // 3 thunder // 4 sun // 5 clouds
+  changeWeather(weather[0]); // 0 snow //1 wind // 2 rain // 3 thunder // 4 sun // 5 clouds
 }
 
 function onResize() {
@@ -138,11 +129,6 @@ function onResize() {
   });
 
   outerSVG.attr({
-    width: sizes.container.width,
-    height: sizes.container.height,
-  });
-
-  backSVG.attr({
     width: sizes.container.width,
     height: sizes.container.height,
   });
@@ -228,7 +214,8 @@ function makeRain() {
 
   // Draw the line
 
-  var line = this['innerRainHolder' + (3 - Math.floor(lineWidth))]
+  var Holders = [innerRainHolder1,innerRainHolder2,innerRainHolder3]
+	var line = Holders[(2 - Math.floor(lineWidth))]
     .path('M0,0 0,' + lineLength)
     .attr({
       fill: 'none',
@@ -524,18 +511,7 @@ function tick() {
 function reset() {
   for (var i = 0; i < weather.length; i++) {
     container.removeClass(weather[i].type);
-    weather[i].button.removeClass('active');
   }
-}
-
-function updateSummaryText() {
-  summary.html(currentWeather.name);
-  TweenMax.fromTo(
-    summary,
-    1.5,
-    { x: 30 },
-    { opacity: 1, x: 0, ease: Power4.easeOut },
-  );
 }
 
 function startLightningTimer() {
@@ -581,23 +557,13 @@ function changeWeather(weather) {
 
   currentWeather = weather;
 
-  TweenMax.killTweensOf(summary);
-  TweenMax.to(summary, 1, {
-    opacity: 0,
-    x: -30,
-    onComplete: updateSummaryText,
-    ease: Power4.easeIn,
-  });
-
   container.addClass(weather.type);
-  weather.button.addClass('active');
 
   // windSpeed
 
   switch (weather.type) {
     case 'wind':
       TweenMax.to(settings, 3, { windSpeed: 3, ease: Power2.easeInOut });
-      console.log('windspeed');
       break;
     case 'sun':
       TweenMax.to(settings, 3, { windSpeed: 20, ease: Power2.easeInOut });
@@ -615,7 +581,6 @@ function changeWeather(weather) {
   switch (weather.type) {
     case 'rain':
       TweenMax.to(settings, 3, { rainCount: 10, ease: Power2.easeInOut });
-      console.log('windspee');
 
       break;
     case 'thunder':
@@ -654,7 +619,7 @@ function changeWeather(weather) {
     case 'sun':
       TweenMax.to(sun.node, 4, {
         x: sizes.card.width / 2,
-        y: sizes.card.height / 2,
+        y: sizes.card.height / 7,
         ease: Power2.easeInOut,
       });
       TweenMax.to(sunburst.node, 4, {

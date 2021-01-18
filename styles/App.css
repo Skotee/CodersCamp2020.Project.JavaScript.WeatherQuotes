@@ -9,7 +9,7 @@ body {
   min-height: 100vh;
   width: 100%;
   /* tymczasowo */
-  background-image: url('../static/assets/img/modes/BackgroundImg/bgImg.jpg');
+  background-image: url('../assets/storm.jpg');
   background-size: cover;
   align-items: center;
 }
@@ -27,18 +27,73 @@ body {
   overflow: hidden;
 }
 
-.container .sidebar input {
+.container .sidebar .searchCity{
+  display: flex;
+  flex-direction: column;
+  order: 1;
+  z-index: 1;
+  justify-content: center;
+}
+
+/* usunalem outline z pola na tekst */
+input:focus{
+  outline: none;
+}
+
+.container .sidebar .searchCity input {
   height: 50px;
   width: 75%;
-  margin: 55px auto;
+  margin: 0 auto 10px;
   text-align: center;
   border: 1px black solid;
   border-radius: 50px;
   font-size: 25px;
   text-transform: uppercase;
-  background-color: rgba(68, 53, 44, 0.479);
+  background-color: rgba(128, 78, 47, 0.479);
   color: black;
-  order: 1;
+}
+
+.container .sidebar .searchCity .find{
+  display: block;
+  height: 39px;
+  text-align: center;
+  padding: 10px 15px;
+  margin: 5px auto;
+  font-size: 17px;
+  letter-spacing: 3px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  border: 1px rgba(170, 107, 48, 0.856) solid;
+  color: rgba(194, 118, 47, 0.945);
+  background-color: rgba(182, 142, 104, 0.65);
+  transition: 0.7s ease-in;
+  outline: none; 
+  font-weight: bold;
+  
+}
+
+.container .sidebar .searchCity .find:hover{
+  color: rgba(216, 204, 204, 0.842);
+  border-color: rgba(216, 204, 204, 0.842);
+  background-color: rgba(180, 117, 58, 0.856);
+}
+
+.container .sidebar .searchCity p{
+  display: block;
+  text-align: center;
+  margin: 5px auto 1px;
+  color: black;
+}
+
+.container .sidebar .searchCity p:hover{
+  cursor: pointer;
+}
+
+.container .sidebar .searchCity p span{
+  text-decoration: underline;
+}
+.container .sidebar .searchCity p a:hover{
+  color: orange;
 }
 
 .container .sidebar .empty {
@@ -47,7 +102,7 @@ body {
   margin: 55px auto;
 }
 
-.container .sidebar input::placeholder {
+.container .sidebar .searchCity input::placeholder {
   color: rgba(0, 0, 0, 0.664);
   letter-spacing: 2px;
 }
@@ -57,14 +112,15 @@ body {
   text-align: center;
 }
 
-.container .sidebar .informations .data {
+.container .sidebar .informations .weatherbox-wrapper {
   display: flex;
   flex-direction: column;
-  margin: 6% 0 6% 70px;
+  margin: 6% 0 6% 65px;
   font-size: 22px;
+  z-index: 3;
 }
 
-.container .sidebar .informations .data p {
+.container .sidebar .informations .weatherbox-wrapper p {
   margin: 12px 0;
 }
 
@@ -95,7 +151,7 @@ body {
     order: -1;
   }
 
-  .container .sidebar input {
+  .container .sidebar .searchCity input {
     font-size: 20px;
   }
 }
@@ -112,16 +168,16 @@ body {
   .container .sidebar .informations .localization {
     font-size: 20px;
   }
-  .container .sidebar .informations .data {
+  .container .sidebar .informations .weatherbox-wrapper {
     width: 65%;
-    margin: 40px auto;
+    margin: 35px auto;
     font-size: 20px;
   }
   .container .quote {
     margin: 0 60px;
   }
 
-  .container .sidebar input::placeholder {
+  .container .sidebar .searchCity input::placeholder {
     font-size: 16px;
     letter-spacing: 1px;
   }
@@ -143,10 +199,10 @@ body {
     order: 0;
     flex-grow: 1;
   }
-  .container .sidebar input {
-    margin: 40px auto;
+  .container .sidebar .searchCity input {
+    /* margin: 0 auto 40px; */
   }
-  .container .sidebar .informations .data {
+  .container .sidebar .informations .weatherbox-wrapper {
     margin: 30px 70px;
   }
   .container .quote {
@@ -162,14 +218,14 @@ body {
     min-height: calc(60vh - 39px);
     margin-bottom: 35px;
   }
-  .container .sidebar input {
-    margin: 32px auto;
+  .container .sidebar .searchCity input {
+    /* margin: 0 auto 32px; */
     height: 40px;
   }
-  .container .sidebar .informations .data {
-    margin: 25px auto;
+  .container .sidebar .informations .weatherbox-wrapper {
+    margin: 15px auto;
   }
-  .container .sidebar .informations .data p {
+  .container .sidebar .informations .weatherbox-wrapper p {
     margin: 15px 0;
   }
   .container .quote {
@@ -186,20 +242,20 @@ body {
     margin-bottom: 40px;
     border-width: 1px;
   }
-  .container .sidebar input {
-    margin: 25px auto;
+  .container .sidebar .searchCity input {
+    /* margin: 0 auto 25px; */
   }
-  .container .sidebar input::placeholder {
+  .container .sidebar .searchCity input::placeholder {
     font-size: 14px;
   }
   .container .sidebar .informations .localization {
     font-size: 19px;
   }
-  .container .sidebar .informations .data {
+  .container .sidebar .informations .weatherbox-wrapper {
     width: 80%;
     font-size: 17px;
   }
-  .container .sidebar .informations .data p {
+  .container .sidebar .informations .weatherbox-wrapper p {
     margin: 8px 0;
   }
   .container .quote {
@@ -216,16 +272,15 @@ body {
     font-size: 18px;
     height: 42vh;
   }
-  .container .sidebar input {
+  .container .sidebar .searchCity input {
     height: 34px;
   }
   .container .sidebar .informations .localization {
     font-size: 17px;
   }
-  .container .sidebar .informations .data {
+  .container .sidebar .informations .weatherbox-wrapper {
     font-size: 15px;
-    margin-top: 13px;
-    margin-bottom: 13px;
+    margin: 13px auto;
   }
 }
 @media (max-height: 450px) {
@@ -238,12 +293,11 @@ body {
     margin: 5vh auto;
     order: 0;
   }
-  .container .sidebar input {
-    margin: 25px auto;
+  .container .sidebar .searchCity input {
     height: 40px; /*? */
     width: 50%;
   }
-  .container .sidebar input::placeholder {
+  .container .sidebar .searchCity input::placeholder {
     font-size: 20px;
   }
   .container .quote {
@@ -252,10 +306,10 @@ body {
     padding: 0;
     font-size: 32px;
   }
-  .container .sidebar .informations .data {
+  .container .sidebar .informations .weatherbox-wrapper {
     margin: 10px 0 0 30px;
   }
-  .container .sidebar .informations .data p {
+  .container .sidebar .informations .weatherbox-wrapper p {
     display: block;
     flex-wrap: wrap;
     margin: 7px;
@@ -290,7 +344,7 @@ body,
   padding: 0;
   height: 100%;
   width: 100%;
-  overflow: auto;
+  overflow-y: auto;
   position: relative;
 }
 
@@ -303,6 +357,7 @@ body,
 }
 
 .weather {
+  z-index: 0;
   overflow: hidden;
   transition: background-color 2s ease;
 }
