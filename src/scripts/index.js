@@ -1,7 +1,7 @@
 import 'regenerator-runtime/runtime' //async/await with Parcel
 
-import { CheckWeatherMain, displayQuotes } from './scripts/quotes';
-import { changeWeather } from '/src/scripts/script.js';
+import { CheckWeatherMain, displayQuotes } from '/src/scripts/quotes.js';
+
 
 // autolokalizacja
 let localization = { lat: 50, lng: 19 }
@@ -28,7 +28,7 @@ function getLocation() {
 //-----------------------------------------------
 const API_KEY = 'a53136f1a7cfa62997f97997cfb14cde';
 let weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${localization.lat}&lon=${localization.lng}&appid=${API_KEY}`;
-var weatherData = {
+export var weatherData = {
   cityName: '',
   temp: 0,
   feelsTemp: 0,
@@ -130,6 +130,7 @@ function handleSearch(){
 
 //FUNKCJA ZMIANY TŁA
 const changeBackgroundImg = () => {
+
   switch(weatherData.weatherType){
     case 'Clouds':
       container.style.backgroundImage = "url('https://images.pexels.com/photos/2909083/pexels-photo-2909083.jpeg')";
@@ -151,55 +152,3 @@ const changeBackgroundImg = () => {
       break;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

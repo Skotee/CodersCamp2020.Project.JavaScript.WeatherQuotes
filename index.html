@@ -6,20 +6,22 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <title>WeatherQuotes</title>
       <link rel="stylesheet" href="styles/App.css" />
-
       <link
           href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
           rel="stylesheet" />
-      
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&display=swap" rel="stylesheet">
   </head>
   <body>
       <div class="container">
-          <div class="quote">
-              <div class="content" id="quote-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, consectetur
-                  enim!
-              </div>
-              <div class="author" id="quote-author">CodersCamp AK Team</div>
+        <div class="quote">
+          <div class="content" id="quote-content">
+              <p contentEditable role='textbox' aria-multiline='true' >Witaj w naszej aplikacji pogodowej</p>
           </div>
+          <div class="author" id="quote-author">
+              <p contentEditable role='textbox' aria-multiline='true' >CodersCamp AK Team</p>
+          </div>
+        </div>
           <div class="sidebar">
               <div class="background">
                   <div class="subcontainer">	
@@ -49,47 +51,42 @@
               </div>
               <div class="empty"></div>
               <div class="searchCity">
-                  <input list="search" type="text" placeholder="Wpisz nazwę miasta">
-                  <button onclick="handleSearch()" class="find">Szukaj</button>
+                  <input id="findCityInput" list="search" type="text" placeholder="Wpisz nazwę miasta">
+                  <datalist id="search"> </datalist>
+                  <button  class="find">Szukaj</button>
                   <p id="FindMeBtn">Jeśli nie wiesz gdzie jesteś kliknij <span>TUTAJ</span> !</p>
               </div>
               
-              <datalist id="search"> </datalist>
               <div class="informations">
-                  <div class="localization" id="cityName">???</div>
+                <div class="localization" id="cityName">
+                  Wybrane miasto:
+                  <p id="chosenCity">???</p>                          
+              </div>
                   <div class="weatherbox-wrapper">
-                  <!-- Tomek -->
                   <p class="details-wrapper temp">
                       Temperatura: 
                       <span id="temp" class="data"> ? </span> 
                       <sup>o</sup>C
                   </p>
                   <p class="details-wrapper apparentTemp">
-                      Odczuwalna temp:
+                    Odczuwalna :
                       <span id="feelTemp" class="data"> ? </span>
                       <sup>o</sup>C
                   </p>
                   <p class="details-wrapper visilibity">
-                      Stopień zachmurzenia:
-                      <span id="clouds" class="data"> ? </span>km
+                       Zachmurzenie:
+                      <span id="clouds" class="data"> ? </span>%
                   </p>
-                  <datalist id="search"> </datalist>
                   </div>
               </div>
           </div>
       </div>
-
-          
-
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyXP9UaV5zNdPtmkW2jF8_SwCiH8-QSms&libraries=places"></script>
-      <script src="src/index.js"></script>    
-      <script src="src/input.js"></script> 
       <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-      <!-- Snap.js chyba nie jest modułem -->
-      <script src="src/scripts/snap.js"></script>
-      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script> -->
-      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/jquery.gsap.min.js" integrity="sha512-K43Gi6p1AN9cBmgnY3XE1ii0wc2Rl4dArjMgYeXpYmLSZGA7jXWcX4Drj52m2K9js6qHSRQoYlKyO4sSr3nbSg==" crossorigin="anonymous"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/jquery.gsap.min.js" integrity="sha512-K43Gi6p1AN9cBmgnY3XE1ii0wc2Rl4dArjMgYeXpYmLSZGA7jXWcX4Drj52m2K9js6qHSRQoYlKyO4sSr3nbSg==" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w==" crossorigin="anonymous"></script>
-      <script src="src/scripts/script.js"></script>
-  </body>
+      <script src="src/scripts/snap.js"></script>
+      <script src="src/scripts/index.js"></script>    
+      <script src="src/scripts/input.js"></script> 
+      <!-- <script src="src/scripts/script.js"></script> -->
+      
 </html>

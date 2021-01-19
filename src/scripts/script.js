@@ -3,6 +3,7 @@
 // Snap.js chyba nie jest modułem
 // import ES6 powinniśmy chyba używać wewnątrz modułów ES6
 // 
+import { weatherData, cityName, getWeather } from '/src/scripts/index.js';
 
 var container = $('.container');
 var card = $('#card');
@@ -93,6 +94,7 @@ $(window).resize(onResize);
 requestAnimationFrame(tick);
 
 function init() {
+  console.log('weatherData', weatherData)
   onResize();
   // ☁️ draw clouds
 
@@ -108,8 +110,29 @@ function init() {
   //////////////////////////////////
   ///////WAŻNE//////////////////////
   //////////////////////////////////
-
-  changeWeather(weather[0]); // 0 snow //1 wind // 2 rain // 3 thunder // 4 sun // 5 clouds
+  let zmienna = 2;
+  switch(weatherData){
+    case 'Clouds':
+    zmienna = 5;
+      break;
+    case 'Snow':
+    zmienna = 0;
+      break;
+    case 'Thunder':
+    zmienna = 3;
+      break;
+    case 'Clear':
+    zmienna = 4;
+      break;
+    case 'Wind':
+    zmienna = 1;
+      break;
+    case 'Rain':
+    zmienna = 2;
+      break;
+  }
+  
+  changeWeather(weather[zmienna]); // 0 snow //1 wind // 2 rain // 3 thunder // 4 sun // 5 clouds
 }
 
 function onResize() {
@@ -551,11 +574,12 @@ function lightning() {
   });
 }
 
-function changeWeather(weather) {
+export function changeWeather(weather) {
+  
   if (weather.data) weather = weather.data;
   reset();
 
-  currentWeather = weather;
+  var currentWeather = weather;
 
   container.addClass(weather.type);
 

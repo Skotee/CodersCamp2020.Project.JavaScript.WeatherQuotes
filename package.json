@@ -1,5 +1,5 @@
 {
-  "name": "@coderscamp2020/project-javascript-typescript-starwarsquiz",
+  "name": "@coderscamp2020/project-javascript-weatherquotes",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,16 +15,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz.git"
+    "url": "git+https://github.com/Skotee/CodersCamp2020.Project.JavaScript.WeatherQuotes.git"
   },
   "keywords": [],
   "author": "CodersCamp2020",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz/issues"
+    "url": "https://github.com/Skotee/CodersCamp2020.Project.JavaScript.WeatherQuotes/issues"
   },
-  "homepage": "https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz#readme",
+  "homepage": "https://github.com/Skotee/CodersCamp2020.Project.JavaScript.WeatherQuotes#readme",
   "dependencies": {
+    "index.js": "0.0.3",
     "parcel": "^1.12.4",
     "regenerator-runtime": "^0.13.7",
     "snapsvg": "^0.5.1",

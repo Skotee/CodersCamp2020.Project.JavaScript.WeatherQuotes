@@ -1,3 +1,13 @@
+const btn = document.querySelector('.find');
+const quote = document.querySelector(".quote");
+const author = document.querySelector(".author");
+// docelowo weather.main
+let weather = "Snow"
+
+// main button
+btn.addEventListener('click', () => CheckWeatherMain(weather));
+
+
 export const getFromRonSwanson = async () => {
     try {
         const response = await fetch(
@@ -51,15 +61,3 @@ export function displayQuotes(quote, content, author) {
     author.textContent = quote.author;
 }
 
-// window.onload = () => {
-//     const ContentElement = document.querySelector("#quote-content");
-//     const AuthorElement = document.querySelector("#quote-author");
-
-//     let weather = 'Rain';
-
-//     // main button
-//     btn.addEventListener('click', async () => {
-//         let quote = await CheckWeatherMain(weather);
-//         displayQuotes(quote, ContentElement, AuthorElement);
-//     });
-// }

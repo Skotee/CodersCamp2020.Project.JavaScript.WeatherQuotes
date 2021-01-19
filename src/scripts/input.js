@@ -5,14 +5,17 @@ let datalist = document.querySelector('datalist');
     .then (response => response.text())
     .then(text => { 
         let citiesNames = text.split("\n");
+
         let citiesNamesWithoutDuplicates = [...new Set(citiesNames)];
         let citiesNamesUpperCase = [];
+        
 
         citiesNamesWithoutDuplicates.forEach(function(obj) {
             citiesNamesUpperCase.push(obj.toUpperCase());
         });
-            
+           
         inputAutocomplete(citiesNamesUpperCase);
+        
     })
     .catch(err => {
         console.log('Request Failed', err); 
