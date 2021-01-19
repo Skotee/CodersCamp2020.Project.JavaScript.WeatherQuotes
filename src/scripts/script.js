@@ -26,7 +26,7 @@ var sunburst = Snap.select('#sunburst');
 var outerSplashHolder = outerSVG.group();
 var outerLeafHolder = outerSVG.group();
 var outerSnowHolder = outerSVG.group();
-
+var currentWeather;
 var lightningTimeout;
 
 // Set mask for leaf holder
@@ -106,33 +106,8 @@ function init() {
   // ☀️ set initial weather
 
   TweenMax.set(sunburst.node, { opacity: 0 });
-
-  //////////////////////////////////
-  ///////WAŻNE//////////////////////
-  //////////////////////////////////
-  let zmienna = 2;
-  switch(weatherData){
-    case 'Clouds':
-    zmienna = 5;
-      break;
-    case 'Snow':
-    zmienna = 0;
-      break;
-    case 'Thunder':
-    zmienna = 3;
-      break;
-    case 'Clear':
-    zmienna = 4;
-      break;
-    case 'Wind':
-    zmienna = 1;
-      break;
-    case 'Rain':
-    zmienna = 2;
-      break;
-  }
   
-  changeWeather(weather[zmienna]); // 0 snow //1 wind // 2 rain // 3 thunder // 4 sun // 5 clouds
+  changeWeather(weather[5]);//stan 0
 }
 
 function onResize() {
@@ -579,7 +554,7 @@ export function changeWeather(weather) {
   if (weather.data) weather = weather.data;
   reset();
 
-  var currentWeather = weather;
+  currentWeather = weather;
 
   container.addClass(weather.type);
 
@@ -673,3 +648,6 @@ export function changeWeather(weather) {
 
   startLightningTimer();
 }
+
+window.weather = weather;
+window.changeWeather = changeWeather;

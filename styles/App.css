@@ -79,6 +79,7 @@ input:focus {
   color: rgba(216, 204, 204, 0.842);
   border-color: rgba(216, 204, 204, 0.842);
   background-color: rgba(180, 117, 58, 0.856);
+  cursor: pointer;
 }
 
 .container .sidebar .searchCity p {

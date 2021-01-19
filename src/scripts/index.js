@@ -1,4 +1,5 @@
 import 'regenerator-runtime/runtime' //async/await with Parcel
+import { changeWeather } from './script';
 
 import { CheckWeatherMain, displayQuotes } from '/src/scripts/quotes.js';
 
@@ -10,6 +11,7 @@ let foramttedAdressParagraph = document.getElementById("info");
 findMebtn.addEventListener("click", getLocation);
 let temporaryCityInfo = document.getElementById("test");
 const container = document.querySelector(".container");
+const weatherbox = document.querySelector(".weatherbox-wrapper");
 
 // sprawdzam dlugosc i szerokosc geograficzna, a nastepnie wrzucam je google maps api
 function showPosition(position) {
@@ -84,19 +86,10 @@ const getWeatherAutoLocalization = async () => {
 
 
 const setWeatherData = (data) => {
-  console.log('działasetWeatherData');
   weatherData.cityName = data.name;
-  console.log('weatherData.cityName', weatherData.cityName);
-
   weatherData.temp = Math.round(data.main.temp);
-  console.log('działasetWeatherData', weatherData.temp);
-
   weatherData.feelsTemp = Math.round(data.main.feels_like);
-  console.log('weatherData.feelsTemp', weatherData.feelsTemp);
-
   weatherData.weatherType = data.weather[0].main;
-  console.log('weatherData.weatherType', weatherData.weatherType);
-
   weatherData.cloudsCoverage = data.clouds.all;
 
   insertWeatherDataToStage();
@@ -134,21 +127,30 @@ const changeBackgroundImg = () => {
   switch(weatherData.weatherType){
     case 'Clouds':
       container.style.backgroundImage = "url('https://images.pexels.com/photos/2909083/pexels-photo-2909083.jpeg')";
+      changeWeather(weather[5]);
       break;
     case 'Snow':
       container.style.backgroundImage = "url('https://images.pexels.com/photos/4067967/pexels-photo-4067967.jpeg')";
+      changeWeather(weather[0]);
       break;
-    case 'Thunder':
+    case 'Thunderstorm':
       container.style.backgroundImage = "url('https://images.pexels.com/photos/1162251/pexels-photo-1162251.jpeg')";
+      changeWeather(weather[3]);
       break;
     case 'Clear':
       container.style.backgroundImage = "url('https://images.pexels.com/photos/3768/sky-sunny-clouds-cloudy.jpg')";
+      changeWeather(weather[4]);
       break;
     case 'Wind':
       container.style.backgroundImage = "url('https://images.pexels.com/photos/418682/pexels-photo-418682.jpeg')";
+      changeWeather(weather[1]);
       break;
-    case 'Rain':
+    case 'Rain': 
+    case 'Drizzle':
       container.style.backgroundImage = "url('https://images.pexels.com/photos/1529360/pexels-photo-1529360.jpeg')";
+      changeWeather(weather[2]);
       break;
+    default:
+      changeWeather(weather[5]);
   }
 }
