@@ -96,6 +96,16 @@ requestAnimationFrame(tick);
 function init() {
   console.log('weatherData', weatherData)
   onResize();
+
+  // 🖱 bind weather menu buttons
+
+  for (var i = 0; i < weather.length; i++) {
+    var w = weather[i];
+    var b = $('#button-' + w.type);
+    w.button = b;
+    b.bind('click', w, changeWeather);
+  }
+
   // ☁️ draw clouds
 
   for (var i = 0; i < clouds.length; i++) {
@@ -127,6 +137,11 @@ function onResize() {
   });
 
   outerSVG.attr({
+    width: sizes.container.width,
+    height: sizes.container.height,
+  });
+
+  backSVG.attr({
     width: sizes.container.width,
     height: sizes.container.height,
   });
@@ -509,7 +524,18 @@ function tick() {
 function reset() {
   for (var i = 0; i < weather.length; i++) {
     container.removeClass(weather[i].type);
+    weather[i].button.removeClass('active');
   }
+}
+
+function updateSummaryText() {
+  summary.html(currentWeather.name);
+  TweenMax.fromTo(
+    summary,
+    1.5,
+    { x: 30 },
+    { opacity: 1, x: 0, ease: Power4.easeOut },
+  );
 }
 
 function startLightningTimer() {
@@ -556,7 +582,17 @@ export function changeWeather(weather) {
 
   currentWeather = weather;
 
+  TweenMax.killTweensOf(summary);
+  TweenMax.to(summary, 1, {
+    opacity: 0,
+    x: -30,
+    onComplete: updateSummaryText,
+    ease: Power4.easeIn,
+  });
+
   container.addClass(weather.type);
+  weather.button.addClass('active');
+
 
   // windSpeed
 
