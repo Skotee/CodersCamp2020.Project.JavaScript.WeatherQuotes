@@ -2,7 +2,7 @@
 // 📝 Fetch all DOM nodes in jQuery and Snap SVG
 // Snap.js chyba nie jest modułem
 // import ES6 powinniśmy chyba używać wewnątrz modułów ES6
-// 
+//
 import { weatherData, cityName, getWeather } from '/src/scripts/index.js';
 
 var container = $('.container');
@@ -94,7 +94,7 @@ $(window).resize(onResize);
 requestAnimationFrame(tick);
 
 function init() {
-  console.log('weatherData', weatherData)
+  console.log('weatherData', weatherData);
   onResize();
 
   // 🖱 bind weather menu buttons
@@ -116,8 +116,8 @@ function init() {
   // ☀️ set initial weather
 
   TweenMax.set(sunburst.node, { opacity: 0 });
-  
-  changeWeather(weather[5]);//stan 0
+
+  changeWeather(weather[5]); //stan 0
 }
 
 function onResize() {
@@ -137,11 +137,6 @@ function onResize() {
   });
 
   outerSVG.attr({
-    width: sizes.container.width,
-    height: sizes.container.height,
-  });
-
-  backSVG.attr({
     width: sizes.container.width,
     height: sizes.container.height,
   });
@@ -227,8 +222,8 @@ function makeRain() {
 
   // Draw the line
 
-  var Holders = [innerRainHolder1,innerRainHolder2,innerRainHolder3]
-	var line = Holders[(2 - Math.floor(lineWidth))]
+  var Holders = [innerRainHolder1, innerRainHolder2, innerRainHolder3];
+  var line = Holders[2 - Math.floor(lineWidth)]
     .path('M0,0 0,' + lineLength)
     .attr({
       fill: 'none',
@@ -528,16 +523,6 @@ function reset() {
   }
 }
 
-function updateSummaryText() {
-  summary.html(currentWeather.name);
-  TweenMax.fromTo(
-    summary,
-    1.5,
-    { x: 30 },
-    { opacity: 1, x: 0, ease: Power4.easeOut },
-  );
-}
-
 function startLightningTimer() {
   if (lightningTimeout) clearTimeout(lightningTimeout);
   if (currentWeather.type == 'thunder') {
@@ -576,23 +561,13 @@ function lightning() {
 }
 
 export function changeWeather(weather) {
-  
   if (weather.data) weather = weather.data;
   reset();
 
   currentWeather = weather;
 
-  TweenMax.killTweensOf(summary);
-  TweenMax.to(summary, 1, {
-    opacity: 0,
-    x: -30,
-    onComplete: updateSummaryText,
-    ease: Power4.easeIn,
-  });
-
   container.addClass(weather.type);
   weather.button.addClass('active');
-
 
   // windSpeed
 
