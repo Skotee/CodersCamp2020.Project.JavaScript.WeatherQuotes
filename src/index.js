@@ -1,7 +1,9 @@
+
 import 'regenerator-runtime/runtime' //async/await with Parcel
 
 import { CheckWeatherMain, displayQuotes } from './scripts/quotes';
 import { changeWeather } from '/src/scripts/script.js';
+
 
 // autolokalizacja
 let localization = { lat: 50, lng: 19 }
@@ -9,7 +11,9 @@ let findMebtn = document.getElementById("FindMeBtn");
 let foramttedAdressParagraph = document.getElementById("info");
 findMebtn.addEventListener("click", getLocation);
 let temporaryCityInfo = document.getElementById("test");
+
 const container = document.querySelector(".container");
+
 
 // sprawdzam dlugosc i szerokosc geograficzna, a nastepnie wrzucam je google maps api
 function showPosition(position) {
@@ -67,8 +71,7 @@ const getWeather = async (cityName) => {
 const getWeatherAutoLocalization = async () => {
   try {
     let weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${localization.lat}&lon=${localization.lng}&appid=${API_KEY}&units=metric`;
-    
-        
+   
     const response = await fetch(`${weatherApiUrl}`)
     if (response.ok) {
       const data = await response.json();
@@ -81,7 +84,6 @@ const getWeatherAutoLocalization = async () => {
     console.log("getWeatherAutoLocalization nie działa - wchodzi blok catch", error)
   }
 }
-
 
 const setWeatherData = (data) => {
   console.log('działasetWeatherData');
@@ -151,55 +153,3 @@ const changeBackgroundImg = () => {
       break;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
