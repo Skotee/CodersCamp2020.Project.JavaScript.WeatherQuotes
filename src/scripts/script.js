@@ -3,17 +3,16 @@
 // Snap.js chyba nie jest modułem
 // import ES6 powinniśmy chyba używać wewnątrz modułów ES6
 //
-/* eslint-disable */
-import { weatherData, cityName, getWeather } from "/src/scripts/index.js";
+import { weatherData, cityName, getWeather } from '/src/scripts/index.js';
 
-var container = $(".container");
-var card = $("#card");
-var innerSVG = Snap("#inner");
-var outerSVG = Snap("#outer");
-var date = $("#date");
-var weatherContainer1 = Snap.select("#layer1");
-var weatherContainer2 = Snap.select("#layer2");
-var weatherContainer3 = Snap.select("#layer3");
+var container = $('.container');
+var card = $('#card');
+var innerSVG = Snap('#inner');
+var outerSVG = Snap('#outer');
+var date = $('#date');
+var weatherContainer1 = Snap.select('#layer1');
+var weatherContainer2 = Snap.select('#layer2');
+var weatherContainer3 = Snap.select('#layer3');
 var innerRainHolder1 = weatherContainer1.group();
 var innerRainHolder2 = weatherContainer2.group();
 var innerRainHolder3 = weatherContainer3.group();
@@ -21,9 +20,9 @@ var innerLeafHolder = weatherContainer1.group();
 var innerSnowHolder = weatherContainer1.group();
 var innerLightningHolder = weatherContainer1.group();
 var leafMask = outerSVG.rect();
-var leaf = Snap.select("#leaf");
-var sun = Snap.select("#sun");
-var sunburst = Snap.select("#sunburst");
+var leaf = Snap.select('#leaf');
+var sun = Snap.select('#sun');
+var sunburst = Snap.select('#sunburst');
 var outerSplashHolder = outerSVG.group();
 var outerLeafHolder = outerSVG.group();
 var outerSnowHolder = outerSVG.group();
@@ -33,7 +32,7 @@ var lightningTimeout;
 // Set mask for leaf holder
 
 outerLeafHolder.attr({
-  "clip-path": leafMask,
+  'clip-path': leafMask,
 });
 
 // create sizes object, we update this later
@@ -46,20 +45,20 @@ var sizes = {
 // grab cloud groups
 
 var clouds = [
-  { group: Snap.select("#cloud1") },
-  { group: Snap.select("#cloud2") },
-  { group: Snap.select("#cloud3") },
+  { group: Snap.select('#cloud1') },
+  { group: Snap.select('#cloud2') },
+  { group: Snap.select('#cloud3') },
 ];
 
 // set weather types ☁️ 🌬 🌧 ⛈ ☀️
 
 var weather = [
-  { type: "snow", name: "Snow" },
-  { type: "wind", name: "Windy" },
-  { type: "rain", name: "Rain" },
-  { type: "thunder", name: "Storms" },
-  { type: "sun", name: "Sunny" },
-  { type: "cloudy", name: "Cloudy" },
+  { type: 'snow', name: 'Snow' },
+  { type: 'wind', name: 'Windy' },
+  { type: 'rain', name: 'Rain' },
+  { type: 'thunder', name: 'Storms' },
+  { type: 'sun', name: 'Sunny' },
+  { type: 'cloudy', name: 'Cloudy' },
 ];
 
 // 🛠 app settings
@@ -95,16 +94,16 @@ $(window).resize(onResize);
 requestAnimationFrame(tick);
 
 function init() {
-  console.log("weatherData", weatherData);
+  console.log('weatherData', weatherData);
   onResize();
 
   // 🖱 bind weather menu buttons
 
   for (var i = 0; i < weather.length; i++) {
     var w = weather[i];
-    var b = $("#button-" + w.type);
+    var b = $('#button-' + w.type);
     w.button = b;
-    b.bind("click", w, changeWeather);
+    b.bind('click', w, changeWeather);
   }
 
   // ☁️ draw clouds
@@ -143,7 +142,7 @@ function onResize() {
   });
 
   TweenMax.set(sunburst.node, {
-    transformOrigin: "50% 50%",
+    transformOrigin: '50% 50%',
     x: sizes.container.width / 2,
     y: sizes.card.height / 2 + sizes.card.offset.top,
   });
@@ -151,7 +150,7 @@ function onResize() {
     sunburst.node,
     20,
     { rotation: 0 },
-    { rotation: 360, repeat: -1, ease: Power0.easeInOut }
+    { rotation: 360, repeat: -1, ease: Power0.easeInOut },
   );
   // 🍃 The leaf mask is for the leafs that float out of the
   // container, it is full window height and starts on the left
@@ -182,24 +181,24 @@ function drawCloud(cloud, i) {
   var width = sizes.card.width;
 
   var points = [];
-  points.push("M" + [-width, 0].join(","));
-  points.push([width, 0].join(","));
-  points.push("Q" + [width * 2, height / 2].join(","));
-  points.push([width, height].join(","));
-  points.push("Q" + [width * 0.5, arch].join(","));
-  points.push([0, height].join(","));
-  points.push("Q" + [width * -0.5, arch].join(","));
-  points.push([-width, height].join(","));
-  points.push("Q" + [-(width * 2), height / 2].join(","));
-  points.push([-width, 0].join(","));
+  points.push('M' + [-width, 0].join(','));
+  points.push([width, 0].join(','));
+  points.push('Q' + [width * 2, height / 2].join(','));
+  points.push([width, height].join(','));
+  points.push('Q' + [width * 0.5, arch].join(','));
+  points.push([0, height].join(','));
+  points.push('Q' + [width * -0.5, arch].join(','));
+  points.push([-width, height].join(','));
+  points.push('Q' + [-(width * 2), height / 2].join(','));
+  points.push([-width, 0].join(','));
 
-  var path = points.join(" ");
+  var path = points.join(' ');
   if (!cloud.path) cloud.path = cloud.group.path();
   cloud.path.animate(
     {
       d: path,
     },
-    0
+    0,
   );
 }
 
@@ -214,7 +213,7 @@ function makeRain() {
 
   // ⛈ line length is made longer for stormy weather
 
-  var lineLength = currentWeather.type == "thunder" ? 35 : 14;
+  var lineLength = currentWeather.type == 'thunder' ? 35 : 14;
 
   // Start the drop at a random point at the top but leaving
   // a 20px margin
@@ -225,10 +224,10 @@ function makeRain() {
 
   var Holders = [innerRainHolder1, innerRainHolder2, innerRainHolder3];
   var line = Holders[2 - Math.floor(lineWidth)]
-    .path("M0,0 0," + lineLength)
+    .path('M0,0 0,' + lineLength)
     .attr({
-      fill: "none",
-      stroke: currentWeather.type == "thunder" ? "#777" : "#0000ff",
+      fill: 'none',
+      stroke: currentWeather.type == 'thunder' ? '#777' : '#0000ff',
       strokeWidth: lineWidth,
     });
 
@@ -250,7 +249,7 @@ function makeRain() {
       ease: Power2.easeIn,
       onComplete: onRainEnd,
       onCompleteParams: [line, lineWidth, x, currentWeather.type],
-    }
+    },
   );
 }
 
@@ -284,11 +283,11 @@ function makeSplash(x, type) {
   // 💦 The splash is a single line added to the outer svg.
 
   // The splashLength is how long the animated line will be
-  var splashLength = type == "thunder" ? 30 : 20;
+  var splashLength = type == 'thunder' ? 30 : 20;
 
   // splashBounce is the max height the line will curve up
   // before falling
-  var splashBounce = type == "thunder" ? 120 : 100;
+  var splashBounce = type == 'thunder' ? 120 : 100;
 
   // this sets how far down the line can fall
   var splashDistance = 80;
@@ -296,7 +295,7 @@ function makeSplash(x, type) {
   // because the storm rain is longer we want the animation
   // to last slighly longer so the overall speed is roughly
   // the same for both
-  var speed = type == "thunder" ? 0.7 : 0.5;
+  var speed = type == 'thunder' ? 0.7 : 0.5;
 
   // Set a random splash up amount based on the max splash bounce
   var splashUp = 0 - Math.random() * splashBounce;
@@ -307,15 +306,15 @@ function makeSplash(x, type) {
   // Now we put the 3 line coordinates into an array.
 
   var points = [];
-  points.push("M" + 0 + "," + 0);
-  points.push("Q" + randomX + "," + splashUp);
-  points.push(randomX * 2 + "," + splashDistance);
+  points.push('M' + 0 + ',' + 0);
+  points.push('Q' + randomX + ',' + splashUp);
+  points.push(randomX * 2 + ',' + splashDistance);
 
   // Draw the line with Snap SVG
 
-  var splash = outerSplashHolder.path(points.join(" ")).attr({
-    fill: "none",
-    stroke: type == "thunder" ? "#777" : "#0000ff",
+  var splash = outerSplashHolder.path(points.join(' ')).attr({
+    fill: 'none',
+    stroke: type == 'thunder' ? '#777' : '#0000ff',
     strokeWidth: 1,
   });
 
@@ -324,7 +323,7 @@ function makeSplash(x, type) {
   var pathLength = Snap.path.getTotalLength(splash);
   var xOffset = sizes.card.offset.left; //(sizes.container.width - sizes.card.width) / 2
   var yOffset = sizes.card.offset.top + sizes.card.height;
-  splash.node.style.strokeDasharray = splashLength + " " + pathLength;
+  splash.node.style.strokeDasharray = splashLength + ' ' + pathLength;
 
   // Start the splash animation, calling onSplashComplete when finished
   TweenMax.fromTo(
@@ -344,7 +343,7 @@ function makeSplash(x, type) {
       onComplete: onSplashComplete,
       onCompleteParams: [splash],
       ease: SlowMo.ease.config(0.4, 0.1, false),
-    }
+    },
   );
 }
 
@@ -364,7 +363,7 @@ function makeLeaf() {
   var endY = y - (Math.random() * (areaY * 2) - areaY);
   var x;
   var endX;
-  var colors = ["#76993E", "#4A5E23", "#6D632F"];
+  var colors = ['#76993E', '#4A5E23', '#6D632F'];
   var color = colors[Math.floor(Math.random() * colors.length)];
   var xBezier;
 
@@ -404,7 +403,7 @@ function makeLeaf() {
       onComplete: onLeafEnd,
       onCompleteParams: [newLeaf],
       ease: Power0.easeIn,
-    }
+    },
   );
 }
 
@@ -432,7 +431,7 @@ function makeSnow() {
 
   if (scale > 0.8) {
     newSnow = outerSnowHolder.circle(0, 0, 5).attr({
-      fill: "white",
+      fill: 'white',
     });
     endY = sizes.container.height + 10;
     y = sizes.card.offset.top + settings.cloudHeight;
@@ -441,7 +440,7 @@ function makeSnow() {
     //endX = sizes.container.width + 50;
   } else {
     newSnow = innerSnowHolder.circle(0, 0, 5).attr({
-      fill: "white",
+      fill: 'white',
     });
     endY = sizes.card.height + 10;
     //x = -100;
@@ -460,13 +459,13 @@ function makeSnow() {
       onComplete: onSnowEnd,
       onCompleteParams: [newSnow],
       ease: Power0.easeIn,
-    }
+    },
   );
   TweenMax.fromTo(
     newSnow.node,
     1,
     { scale: 0 },
-    { scale: scale, ease: Power1.easeInOut }
+    { scale: scale, ease: Power1.easeInOut },
   );
   TweenMax.to(newSnow.node, 3, {
     x: x + (Math.random() * 150 - 75),
@@ -500,17 +499,17 @@ function tick() {
   }
 
   for (var i = 0; i < clouds.length; i++) {
-    if (currentWeather.type == "sun") {
+    if (currentWeather.type == 'sun') {
       if (clouds[i].offset > -(sizes.card.width * 1.5))
         clouds[i].offset += settings.windSpeed / (i + 1);
       if (clouds[i].offset > sizes.card.width * 2.5)
         clouds[i].offset = -(sizes.card.width * 1.5);
-      clouds[i].group.transform("t" + clouds[i].offset + "," + 0);
+      clouds[i].group.transform('t' + clouds[i].offset + ',' + 0);
     } else {
       clouds[i].offset += settings.windSpeed / (i + 1);
       if (clouds[i].offset > sizes.card.width)
         clouds[i].offset = 0 + (clouds[i].offset - sizes.card.width);
-      clouds[i].group.transform("t" + clouds[i].offset + "," + 0);
+      clouds[i].group.transform('t' + clouds[i].offset + ',' + 0);
     }
   }
 
@@ -520,7 +519,7 @@ function tick() {
 function reset() {
   for (var i = 0; i < weather.length; i++) {
     container.removeClass(weather[i].type);
-    weather[i].button.removeClass("active");
+    weather[i].button.removeClass('active');
   }
 }
 
@@ -530,13 +529,13 @@ function updateSummaryText() {
     summary,
     1.5,
     { x: 30 },
-    { opacity: 1, x: 0, ease: Power4.easeOut }
+    { opacity: 1, x: 0, ease: Power4.easeOut },
   );
 }
 
 function startLightningTimer() {
   if (lightningTimeout) clearTimeout(lightningTimeout);
-  if (currentWeather.type == "thunder") {
+  if (currentWeather.type == 'thunder') {
     lightningTimeout = setTimeout(lightning, Math.random() * 6000);
   }
 }
@@ -548,16 +547,16 @@ function lightning() {
   var pathX = 30 + Math.random() * (sizes.card.width - 60);
   var yOffset = 20;
   var steps = 20;
-  var points = [pathX + ",0"];
+  var points = [pathX + ',0'];
   for (var i = 0; i < steps; i++) {
     var x = pathX + (Math.random() * yOffset - yOffset / 2);
     var y = (sizes.card.height / steps) * (i + 1);
-    points.push(x + "," + y);
+    points.push(x + ',' + y);
   }
 
-  var strike = weatherContainer1.path("M" + points.join(" ")).attr({
-    fill: "none",
-    stroke: "white",
+  var strike = weatherContainer1.path('M' + points.join(' ')).attr({
+    fill: 'none',
+    stroke: 'white',
     strokeWidth: 2 + Math.random(),
   });
 
@@ -578,18 +577,18 @@ export function changeWeather(weather) {
   currentWeather = weather;
 
   container.addClass(weather.type);
-  weather.button.addClass("active");
+  weather.button.addClass('active');
 
   // windSpeed
 
   switch (weather.type) {
-    case "wind":
+    case 'wind':
       TweenMax.to(settings, 3, { windSpeed: 3, ease: Power2.easeInOut });
       break;
-    case "sun":
+    case 'sun':
       TweenMax.to(settings, 3, { windSpeed: 20, ease: Power2.easeInOut });
       break;
-    case "cloudy":
+    case 'cloudy':
       TweenMax.to(settings, 3, { windSpeed: 0.7, ease: Power2.easeInOut });
       break;
     default:
@@ -600,11 +599,11 @@ export function changeWeather(weather) {
   // rainCount
 
   switch (weather.type) {
-    case "rain":
+    case 'rain':
       TweenMax.to(settings, 3, { rainCount: 10, ease: Power2.easeInOut });
 
       break;
-    case "thunder":
+    case 'thunder':
       TweenMax.to(settings, 3, { rainCount: 60, ease: Power2.easeInOut });
       break;
     default:
@@ -615,7 +614,7 @@ export function changeWeather(weather) {
   // leafCount
 
   switch (weather.type) {
-    case "wind":
+    case 'wind':
       TweenMax.to(settings, 3, { leafCount: 5, ease: Power2.easeInOut });
       break;
     default:
@@ -626,7 +625,7 @@ export function changeWeather(weather) {
   // snowCount
 
   switch (weather.type) {
-    case "snow":
+    case 'snow':
       TweenMax.to(settings, 3, { snowCount: 40, ease: Power2.easeInOut });
       break;
     default:
@@ -637,7 +636,7 @@ export function changeWeather(weather) {
   // sun position
 
   switch (weather.type) {
-    case "sun":
+    case 'sun':
       TweenMax.to(sun.node, 4, {
         x: sizes.card.width / 2,
         y: sizes.card.height / 7,
