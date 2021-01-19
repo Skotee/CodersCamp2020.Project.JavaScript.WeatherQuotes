@@ -135,21 +135,30 @@ const changeBackgroundImg = () => {
   switch(weatherData.weatherType){
     case 'Clouds':
       container.style.backgroundImage = "url('https://images.pexels.com/photos/2909083/pexels-photo-2909083.jpeg')";
+      changeWeather[5]; 
       break;
     case 'Snow':
       container.style.backgroundImage = "url('https://images.pexels.com/photos/4067967/pexels-photo-4067967.jpeg')";
+      changeWeather[0]; 
       break;
-    case 'Thunder':
+    case 'Thunderstorm':
       container.style.backgroundImage = "url('https://images.pexels.com/photos/1162251/pexels-photo-1162251.jpeg')";
+      changeWeather[3]; 
       break;
     case 'Clear':
       container.style.backgroundImage = "url('https://images.pexels.com/photos/3768/sky-sunny-clouds-cloudy.jpg')";
+      changeWeather[4]; 
       break;
     case 'Wind':
       container.style.backgroundImage = "url('https://images.pexels.com/photos/418682/pexels-photo-418682.jpeg')";
+      changeWeather[1]; 
       break;
     case 'Rain':
+    case 'Drizzle':
       container.style.backgroundImage = "url('https://images.pexels.com/photos/1529360/pexels-photo-1529360.jpeg')";
+      changeWeather[2]; 
       break;
+    default:
+      changeWeather[5]; 
   }
 }
